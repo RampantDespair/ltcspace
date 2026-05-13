@@ -1,12 +1,12 @@
 @use "sass:color";
 
-/* Theme */
-$bg: #11131f;
-$active-bg: #000000;
+/* Theme — LTC */
+$bg: #0d0d0d;            // LTCbrand: body background
+$active-bg: #11131f;
 $hover-bg: #12131e;
 $fg: #fff;
-$nav-bg: $bg;
-$title-fg: #2055e3;
+$nav-bg: #0d0d0d;        // LTCbrand: nav bar (same as body)
+$title-fg: #fff;         // LTCbrand: card titles in white (was upstream blue)
 
 $taproot: #eba814;
 $taproot-light: #d5a90a;
@@ -20,11 +20,11 @@ $gray-700: $fg;
 
 $nav-tabs-link-active-bg: $active-bg;
 
-$primary: #007cfa;
-$secondary: #272f4e;
-$tertiary: #6225b2;
-$success: #0aab2f;
-$info: #00ddff;
+$primary: #2368d9;       // LTCbrand: primary blue
+$secondary: #1a1a1a;     // LTCbrand: nav bar network selector
+$tertiary: #4c92ff;      // LTCbrand: nav-item active, accents
+$success: #1a9436;       // LTCbrand: success green
+$info: #4c92ff;          // LTCbrand: links / info
 
 $h5-font-size: 1.15rem !default;
 
@@ -33,7 +33,7 @@ $pagination-border-color: $gray-800;
 $pagination-disabled-bg:           $fg;
 $pagination-disabled-border-color: $bg;
 $pagination-active-color:          $fg;
-$pagination-active-bg:             $tertiary;
+$pagination-active-bg:             $info;     // LTCbrand: active pagination button
 $pagination-hover-bg:              $hover-bg;
 $pagination-hover-border-color:     $bg;
 $pagination-disabled-bg:          $bg;
@@ -87,8 +87,8 @@ $dropdown-link-active-bg: $active-bg;
 );
 
 .input-group-text {
-  background-color: #1c2031 !important;
-  border: 1px solid #20263e !important;
+  background-color: #1a1a1a !important;   // LTCbrand
+  border: 1px solid #2b2b2b !important;
 }
 
 :root {
@@ -107,16 +107,16 @@ $dropdown-link-active-bg: $active-bg;
   --link-color: #{$link-color};
   --link-hover-color: #{$link-hover-color};
   --icon: #f1f1f1;
-  --skeleton-bg: #2e324e;
+  --skeleton-bg: #343434;          // LTCbrand: skeleton loader bg
   --skeleton-bg-light: #5d6182;
 
-  --box-bg: #171c2a;
-  --stat-box-bg: #0b1018;
-  --alert-bg: #3a1c61;
-  --navbar-bg: #212121;
+  --box-bg: #1a1a1a;               // LTCbrand: card / box bg
+  --stat-box-bg: #0d0d0d;          // LTCbrand: stat box bg
+  --alert-bg: #1a1a1a;             // LTCbrand: alert bg
+  --navbar-bg: #0d0d0d;            // LTCbrand: nav bar (same as body)
   --transparent-fg: #ffffffbb;
-  --fade-out-box-bg-start: rgba(23, 28, 42, 0);
-  --fade-out-box-bg-end: rgba(23, 28, 42, 1);
+  --fade-out-box-bg-start: rgba(26, 26, 26, 0);    // LTCbrand: matches --box-bg
+  --fade-out-box-bg-end: rgba(26, 26, 26, 1);
   --opacity: 0.57;
 
   --testnet: #1d486f;
@@ -125,7 +125,7 @@ $dropdown-link-active-bg: $active-bg;
   --liquid: #116761;
   --liquidtestnet: #494a4a;
 
-  --mainnet-alt: #9339f4;
+  --mainnet-alt: #2396d9;          // LTCbrand: block gradient highlight (was #9339f4 purple)
   --testnet-alt: #183550;
   --signet-alt: #471850;
   --regtest-alt: #4a4a4a;
@@ -142,10 +142,10 @@ $dropdown-link-active-bg: $active-bg;
   --tooltip-grey: #b1b1b1;
   --orange: #ff9f00;
 
-  --search-button: #4d2d77;
-  --search-button-border: #472a6e;
-  --search-button-focus: #533180;
-  --search-button-shadow: #7c58ab80;
+  --search-button: #1d52b3;        // LTCbrand: :active (pressed), darkest blue
+  --search-button-border: #194596;
+  --search-button-focus: #2368d9;  // LTCbrand: :hover / :focus, darker than default (#4c92ff)
+  --search-button-shadow: #2368d980;
 }
 
 html, body {
@@ -153,7 +153,7 @@ html, body {
 }
 
 body {
-  background-color: var(--active-bg);
+  background-color: #000;     // LTCbrand: pure black body
   padding-bottom: 60px;
 }
 
@@ -572,7 +572,7 @@ html:lang(ru) .card-title {
     position: relative;
     span {
       display: block;
-      background: #282d47;
+      background: #1a1a1a;
       height: 5px;
       border-radius: 2px;
     }
@@ -683,7 +683,7 @@ html:lang(ru) .card-title {
         width: 100%;
         border-radius: 4px;
         display: block;
-        background: #29324c94;
+        background: #1a1a1a94;
       }
       span {
         height: 4px;
@@ -714,7 +714,7 @@ html:lang(ru) .card-title {
     }
   }
   .total-percentage-bar-background {
-    background-color: #282d47;
+    background-color: #1a1a1a;
   }
 }
 

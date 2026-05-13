@@ -88,7 +88,7 @@ export const defaultAuditColors = {
   added: hexToColor('0099ff'),
   added_prioritized: darken(desaturate(hexToColor('0099ff'), 0.15), 0.85),
   prioritized: darken(desaturate(hexToColor('0099ff'), 0.3), 0.7),
-  accelerated: hexToColor('8f5ff6'),
+  accelerated: hexToColor('be8aff'), // LTCbrand: was '8f5ff6' mempool purple
 };
 
 const contrastColors: { [key: string]: ColorPalette } = {

@@ -68,8 +68,6 @@ export class BlockchainBlocksComponent implements OnInit, OnChanges, OnDestroy {
 
   gradientColors = {
     '': ['var(--mainnet-alt)', 'var(--primary)'],
-    liquid: ['var(--liquid)', 'var(--testnet-alt)'],
-    'liquidtestnet': ['var(--liquidtestnet)', 'var(--liquidtestnet-alt)'],
     testnet: ['var(--testnet)', 'var(--testnet-alt)'],
     testnet4: ['var(--testnet)', 'var(--testnet-alt)'],
     signet: ['var(--signet)', 'var(--signet-alt)'],
@@ -352,8 +350,8 @@ export class BlockchainBlocksComponent implements OnInit, OnChanges, OnDestroy {
     return {
       left: addLeft + this.blockOffset * index + 'px',
       background: `repeating-linear-gradient(
-        var(--secondary),
-        var(--secondary) ${greenBackgroundHeight}%,
+        rgb(92, 92, 92),
+        rgb(92, 92, 92) ${greenBackgroundHeight}%,
         ${this.gradientColors[this.network][0]} ${Math.max(greenBackgroundHeight, 0)}%,
         ${this.gradientColors[this.network][1]} 100%
       )`,
@@ -364,7 +362,7 @@ export class BlockchainBlocksComponent implements OnInit, OnChanges, OnDestroy {
   convertStyleForLoadingBlock(style) {
     return {
       ...style,
-      background: 'var(--secondary)',
+      background: 'rgb(92, 92, 92)',
     };
   }
 

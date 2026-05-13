@@ -136,7 +136,7 @@
   position:absolute;
   top: calc(-0.192 * var(--block-size));
   left: calc(-0.16 * var(--block-size));
-  background-color: #232838;
+  background-color: #3e3c3c; // LTCbrand: block cube (top)
   transform:skew(40deg);
   transform-origin:top;
 }
@@ -148,7 +148,7 @@
   position: absolute;
   top: calc(-0.096 * var(--block-size));
   left: calc(-0.16 * var(--block-size));
-  background-color: #191c27;
+  background-color: #2b2b2b; // LTCbrand: block cube (left)
 
   transform: skewY(50deg);
   transform-origin: top;
@@ -173,7 +173,7 @@
   position:absolute;
   top: calc(-0.096 * var(--block-size));
   left: calc(-0.08 * var(--block-size));
-  background-color: #232838;
+  background-color: #3e3c3c; // LTCbrand: block cube (top)
   transform:skew(40deg);
   transform-origin:top;
 }
@@ -185,7 +185,7 @@
   position: absolute;
   top: calc(-0.048 * var(--block-size));
   left: calc(-0.08 * var(--block-size));
-  background-color: #191c27;
+  background-color: #2b2b2b; // LTCbrand: block cube (left)
 
   transform: skewY(50deg);
   transform-origin: top;
@@ -234,7 +234,7 @@
 }
 
 .loading .bitcoin-block.mined-block {
-  background: var(--secondary);
+  background: rgb(92, 92, 92); // LTCbrand: block front face (empty)
 }
 
 @keyframes opacityPulse {
