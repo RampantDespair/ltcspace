@@ -5,8 +5,15 @@ import { MempoolBlock } from '@interfaces/websocket.interface';
 import { Transaction } from '@interfaces/electrs.interface';
 import { MiningService, MiningStats } from '@app/services/mining.service';
 import { getUnacceleratedFeeRate } from '@app/shared/transaction.utils';
-import { AccelerationEstimate } from '@components/accelerate-checkout/accelerate-checkout.component';
 import { Observable, combineLatest, map, of, share, shareReplay, tap } from 'rxjs';
+
+export interface AccelerationEstimate {
+  pools: number[];
+  vsizeFee: number;
+  cost: number;
+  mempoolBaseFee: number;
+  vsizeFeeRate: number;
+}
 
 export interface ETA {
   now: number, // time at which calculation performed

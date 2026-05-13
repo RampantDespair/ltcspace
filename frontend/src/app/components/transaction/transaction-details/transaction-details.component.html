@@ -46,11 +46,7 @@
 <ng-template #detailsRight>
   <ng-container *ngTemplateOutlet="feeRow"></ng-container>
   <ng-container *ngTemplateOutlet="feeRateRow"></ng-container>
-  @if (!isLoadingTx && !tx?.status?.confirmed && isAcceleration && ((cpfpInfo && hasEffectiveFeeRate) || accelerationInfo)) {
-    <ng-container *ngTemplateOutlet="acceleratingRow"></ng-container>
-  } @else {
-    <ng-container *ngTemplateOutlet="effectiveRateRow"></ng-container>
-  }
+  <ng-container *ngTemplateOutlet="effectiveRateRow"></ng-container>
   @if (tx?.status?.confirmed) {
     <ng-container *ngTemplateOutlet="minerRow"></ng-container>
   }
@@ -167,14 +163,6 @@
                 } @else {
                   <app-time kind="until" [time]="eta.time" [fastRender]="false" [fixedRender]="true"></app-time>
                 }
-                @if (!tx?.acceleration && acceleratorAvailable && accelerateCtaType === 'button' && !showAccelerationSummary && notAcceleratedOnLoad) {
-                  <div class="d-flex accelerate">
-                    <a class="btn btn-sm accelerateDeepMempool btn-small-height" [class.disabled]="!eligibleForAcceleration" i18n="transaction.accelerate|Accelerate button label" (click)="onAccelerateClicked()">Accelerate</a>
-                    <a *ngIf="!eligibleForAcceleration" href="https://mempool.space/accelerator#why-cant-accelerate" target="_blank" class="info-badges ml-1" i18n-ngbTooltip="Mempool Accelerator&reg; tooltip" ngbTooltip="This transaction cannot be accelerated">
-                        <fa-icon [icon]="['fas', 'info-circle']" [fixedWidth]="true"></fa-icon>
-                    </a>
-                  </div>
-                }
               </span>
             }
           </ng-container>
@@ -272,15 +260,6 @@
   } @else {
     <ng-container *ngTemplateOutlet="skeletonDetailsRow"></ng-container>
   }
-</ng-template>
-
-<ng-template #acceleratingRow>
-  <tr>
-    <td rowspan="2" colspan="2" style="padding: 0;">
-      <app-active-acceleration-box [acceleratedBy]="tx.acceleratedBy" [effectiveFeeRate]="tx.effectiveFeePerVsize" [accelerationInfo]="accelerationInfo" [miningStats]="miningStats" [hasCpfp]="hasCpfp" (toggleCpfp)="toggleCpfp()" [chartPositionLeft]="isMobile"></app-active-acceleration-box>
-    </td>
-  </tr>
-  <tr></tr>
 </ng-template>
 
 <ng-template #minerRow>

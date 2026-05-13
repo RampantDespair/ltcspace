@@ -8,7 +8,6 @@ import { LanguageService } from '@app/services/language.service';
 import { NavigationService } from '@app/services/navigation.service';
 import { StorageService } from '@app/services/storage.service';
 import { WebsocketService } from '@app/services/websocket.service';
-import { EnterpriseService } from '@app/services/enterprise.service';
 
 @Component({
   selector: 'app-global-footer',
@@ -36,13 +35,11 @@ export class GlobalFooterComponent implements OnInit, OnDestroy, OnChanges {
   isServicesPage = false;
 
   enterpriseInfo: any;
-  enterpriseInfo$: Subscription;
 
   constructor(
     public stateService: StateService,
     private languageService: LanguageService,
     private navigationService: NavigationService,
-    private enterpriseService: EnterpriseService,
     @Inject(LOCALE_ID) public locale: string,
     private storageService: StorageService,
     private route: ActivatedRoute,
@@ -60,9 +57,6 @@ export class GlobalFooterComponent implements OnInit, OnDestroy, OnChanges {
     this.urlLanguage = this.languageService.getLanguageForUrl();
     this.navigationService.subnetPaths.subscribe((paths) => {
       this.networkPaths = paths;
-    });
-    this.enterpriseInfo$ = this.enterpriseService.info$.subscribe(info => {
-      this.enterpriseInfo = info;
     });
     this.network$ = merge(of(''), this.stateService.networkChanged$).pipe(
       tap((network: string) => {
@@ -89,9 +83,6 @@ export class GlobalFooterComponent implements OnInit, OnDestroy, OnChanges {
     this.destroy$.next(true);
     this.destroy$.complete();
     this.urlSubscription.unsubscribe();
-    if (this.enterpriseInfo$) {
-      this.enterpriseInfo$.unsubscribe();
-    }
   }
 
   networkLink(network) {

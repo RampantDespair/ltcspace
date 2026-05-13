@@ -33,11 +33,7 @@
     <track label="Português" kind="captions" srclang="pt" src="/resources/promo-video/pt.vtt" [attr.default]="showSubtitles('pt') ? '' : null">
   </video>
 
-  <ng-container>
-    <app-about-sponsors></app-about-sponsors>
-  </ng-container>
-
-  <div class="enterprise-sponsor" id="enterprise-sponsors">
+  <div class="enterprise-sponsor" id="enterprise-sponsors" *ngIf="false">
     <h3 i18n="about.sponsors.enterprise.withRocket">Enterprise Sponsors 🚀</h3>
     <div class="wrapper">
       <a href="https://spiral.xyz/" target="_blank" title="Spiral">

@@ -9,14 +9,9 @@ const addApiKeyHeader = (proxyReq) => {
 PROXY_CONFIG.forEach((entry) => {
   const mempoolHostname = process.env.MEMPOOL_HOSTNAME
     ? process.env.MEMPOOL_HOSTNAME
-    : 'mempool.space';
+    : 'litecoinspace.org';
 
-  const liquidHostname = process.env.LIQUID_HOSTNAME
-    ? process.env.LIQUID_HOSTNAME
-    : 'liquid.network';
-
-  entry.target = entry.target.replace('mempool.space', mempoolHostname);
-  entry.target = entry.target.replace('liquid.network', liquidHostname);
+  entry.target = entry.target.replace('litecoinspace.org', mempoolHostname);
 
   if (entry.onProxyReq) {
     const originalProxyReq = entry.onProxyReq;

@@ -67,8 +67,6 @@
       <a ngbDropdownItem *ngIf="env.TESTNET_ENABLED" class="testnet" [class.active]="network.val === 'testnet'" [routerLink]="networkPaths['testnet'] || '/testnet'"><app-svg-images name="testnet" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet mr-1"></app-svg-images> Testnet3</a>
       <a ngbDropdownItem *ngIf="env.TESTNET4_ENABLED" class="testnet4" [class.active]="network.val === 'testnet4'" [routerLink]="networkPaths['testnet4'] || '/testnet4'"><app-svg-images name="testnet4" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet mr-1"></app-svg-images> Testnet4</a>
       <a ngbDropdownItem *ngIf="env.REGTEST_ENABLED" class="regtest" [class.active]="network.val === 'regtest'" [routerLink]="networkPaths['regtest'] || '/regtest'"><app-svg-images name="regtest" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet mr-1"></app-svg-images> Regtest</a>
-      <a [href]="env.LIQUID_WEBSITE_URL + urlLanguage + (networkPaths['liquid'] || '')" ngbDropdownItem *ngIf="env.LIQUID_ENABLED" class="liquid" [class.active]="network.val === 'liquid'"><app-svg-images name="liquid" width="22" height="22" viewBox="0 0 125 125" style="width: 25px; height: 25px;" class="mainnet mr-1"></app-svg-images> Liquid</a>
-      <a [href]="env.LIQUID_WEBSITE_URL + urlLanguage  + (networkPaths['liquidtestnet'] || '/testnet')" ngbDropdownItem *ngIf="env.LIQUID_TESTNET_ENABLED" class="liquidtestnet" [class.active]="network.val === 'liquid'"><app-svg-images name="liquidtestnet" width="22" height="22" viewBox="0 0 125 125" style="width: 25px; height: 25px;" class="mainnet mr-1"></app-svg-images> Liquid Testnet</a>
     </div>
   </div>
 
@@ -78,11 +76,6 @@
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="btn-home">
         <a class="nav-link" [routerLink]="['/' | relativeUrl]" (click)="collapse()">
           <div class="svg-wrapper"><app-svg-images name="nav-tachometer" width="21.59" height="100%"></app-svg-images></div>
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="btn-home" *ngIf="network.val === '' && stateService.env.ACCELERATOR">
-        <a class="nav-link" [routerLink]="['/acceleration' | relativeUrl]" (click)="collapse()">
-          <div class="svg-wrapper"><app-svg-images name="nav-rocket" width="21.59" height="100%"></app-svg-images></div>
         </a>
       </li>
       <li class="nav-item mining" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="btn-pools" *ngIf="stateService.env.MINING_DASHBOARD">
@@ -105,19 +98,9 @@
           <div class="svg-wrapper"><app-svg-images name="nav-chart-area" width="21.59" height="100%"></app-svg-images></div>
         </a>
       </li>
-      <li class="nav-item" routerLinkActive="active" id="btn-faucet" *ngIf="stateService.isMempoolSpaceBuild && stateService.env.OFFICIAL_MEMPOOL_SPACE && stateService.network === 'testnet4'">
-        <a class="nav-link" [routerLink]="['/faucet' | relativeUrl]" (click)="collapse()">
-          <div class="svg-wrapper"><app-svg-images name="nav-faucet-drip" width="21.59" height="100%"></app-svg-images></div>
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" id="btn-docs" *ngIf="!officialMempoolSpaceBuild">
+      <li class="nav-item" routerLinkActive="active" id="btn-docs">
         <a class="nav-link" [routerLink]="['/docs' | relativeUrl ]" (click)="collapse()">
           <div class="svg-wrapper"><app-svg-images name="nav-book" width="21.59" height="100%"></app-svg-images></div>
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" id="btn-enterprise" *ngIf="officialMempoolSpaceBuild">
-        <a class="nav-link" [routerLink]="['/enterprise']" [queryParams]="{network: network.val.length ? network.val : null}" (click)="collapse()">
-          <div class="svg-wrapper"><app-svg-images name="nav-enterprise" width="21.59" height="100%"></app-svg-images></div>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="active" id="btn-about">

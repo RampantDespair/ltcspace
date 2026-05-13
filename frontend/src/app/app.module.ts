@@ -10,7 +10,6 @@ import { OrdApiService } from '@app/services/ord-api.service';
 import { StateService } from '@app/services/state.service';
 import { CacheService } from '@app/services/cache.service';
 import { PriceService } from '@app/services/price.service';
-import { EnterpriseService } from '@app/services/enterprise.service';
 import { WebsocketService } from '@app/services/websocket.service';
 import { AudioService } from '@app/services/audio.service';
 import { PreloadService } from '@app/services/preload.service';
@@ -42,7 +41,6 @@ const providers = [
   SeoService,
   OpenGraphService,
   StorageService,
-  EnterpriseService,
   LanguageService,
   ThemeService,
   TimeService,

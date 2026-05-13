@@ -31,12 +31,10 @@ import { seoDescriptionNetwork } from '@app/shared/common.utils';
 import { getTransactionFlags, getUnacceleratedFeeRate } from '@app/shared/transaction.utils';
 import { Filter, TransactionFlags, toFilters } from '@app/shared/filters.utils';
 import { BlockExtended, CpfpInfo, RbfTree, MempoolPosition, DifficultyAdjustment, Acceleration, AccelerationPosition } from '@interfaces/node-api.interface';
-import { LiquidUnblinding } from '@components/transaction/liquid-ublinding';
 import { RelativeUrlPipe } from '@app/shared/pipes/relative-url/relative-url.pipe';
 import { PriceService } from '@app/services/price.service';
 import { isFeatureActive } from '@app/bitcoin.utils';
 import { ServicesApiServices } from '@app/services/services-api.service';
-import { EnterpriseService } from '@app/services/enterprise.service';
 import { ZONE_SERVICE } from '@app/injection-tokens';
 import { MiningService, MiningStats } from '@app/services/mining.service';
 import { ETA, EtaService } from '@app/services/eta.service';
@@ -133,7 +131,6 @@ export class TransactionComponent implements OnInit, AfterViewInit, OnDestroy {
   isCached: boolean = false;
   now = Date.now();
   da$: Observable<DifficultyAdjustment>;
-  liquidUnblinding = new LiquidUnblinding();
   inputIndex: number;
   outputIndex: number;
   graphExpanded: boolean = false;
@@ -211,7 +208,6 @@ export class TransactionComponent implements OnInit, AfterViewInit, OnDestroy {
     private seoService: SeoService,
     private priceService: PriceService,
     private storageService: StorageService,
-    private enterpriseService: EnterpriseService,
     private miningService: MiningService,
     private etaService: EtaService,
     private cd: ChangeDetectorRef,
@@ -219,7 +215,6 @@ export class TransactionComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.enterpriseService.page();
     this.isDetailsOpen = this.route.snapshot.queryParams['showDetails'] === 'true';
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -662,15 +657,6 @@ export class TransactionComponent implements OnInit, AfterViewInit, OnDestroy {
           );
         }),
         switchMap((tx) => {
-          if (this.network === 'liquid' || this.network === 'liquidtestnet') {
-            return from(this.liquidUnblinding.checkUnblindedTx(tx))
-              .pipe(
-                catchError((error) => {
-                  this.errorUnblinded = error;
-                  return of(tx);
-                })
-              );
-          }
           return of(tx);
         })
       ))

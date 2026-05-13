@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Env, StateService } from '@app/services/state.service';
-import { Observable, merge, of, Subscription } from 'rxjs';
+import { Observable, merge, of } from 'rxjs';
 import { LanguageService } from '@app/services/language.service';
-import { EnterpriseService } from '@app/services/enterprise.service';
 import { NavigationService } from '@app/services/navigation.service';
 import { MenuComponent } from '@components/menu/menu.component';
 import { StorageService } from '@app/services/storage.service';
@@ -14,7 +13,7 @@ import { StorageService } from '@app/services/storage.service';
   styleUrls: ['./master-page.component.scss'],
   standalone: false,
 })
-export class MasterPageComponent implements OnInit, OnDestroy {
+export class MasterPageComponent implements OnInit {
   @Input() headerVisible = true;
   @Input() footerVisibleOverride: boolean | null = null;
 
@@ -36,7 +35,6 @@ export class MasterPageComponent implements OnInit, OnDestroy {
   isDropdownVisible: boolean;
 
   enterpriseInfo: any;
-  enterpriseInfo$: Subscription;
 
   @ViewChild(MenuComponent)
   public menuComponent!: MenuComponent;
@@ -44,7 +42,6 @@ export class MasterPageComponent implements OnInit, OnDestroy {
   constructor(
     public stateService: StateService,
     private languageService: LanguageService,
-    private enterpriseService: EnterpriseService,
     private navigationService: NavigationService,
     private storageService: StorageService,
     private router: Router,
@@ -55,7 +52,6 @@ export class MasterPageComponent implements OnInit, OnDestroy {
     this.connectionState$ = this.stateService.connectionState$;
     this.network$ = merge(of(''), this.stateService.networkChanged$);
     this.urlLanguage = this.languageService.getLanguageForUrl();
-    this.subdomain = this.enterpriseService.getSubdomain();
     this.navigationService.subnetPaths.subscribe((paths) => {
       this.networkPaths = paths;
       if (this.footerVisibleOverride === null) {
@@ -68,11 +64,8 @@ export class MasterPageComponent implements OnInit, OnDestroy {
         this.footerVisible = this.footerVisibleOverride;
       }
     });
-    this.enterpriseInfo$ = this.enterpriseService.info$.subscribe(info => {
-      this.enterpriseInfo = info;
-    });
 
-    this.servicesEnabled = this.officialMempoolSpace && this.stateService.env.ACCELERATOR === true && this.stateService.network === '';
+    this.servicesEnabled = false;
     this.refreshAuth();
 
     const isServicesPage = this.router.url.includes('/services/');
@@ -86,8 +79,6 @@ export class MasterPageComponent implements OnInit, OnDestroy {
       this.env.TESTNET4_ENABLED,
       this.env.SIGNET_ENABLED,
       this.env.REGTEST_ENABLED,
-      this.env.LIQUID_ENABLED,
-      this.env.LIQUID_TESTNET_ENABLED,
       this.env.MAINNET_ENABLED,
     ];
     const enabledNetworksCount = networks.filter((networkEnabled) => networkEnabled).length;
@@ -128,12 +119,6 @@ export class MasterPageComponent implements OnInit, OnDestroy {
 
   menuToggled(isOpen: boolean): void {
     this.menuOpen = isOpen;
-  }
-
-  ngOnDestroy(): void {
-    if (this.enterpriseInfo$) {
-      this.enterpriseInfo$.unsubscribe();
-    }
   }
 
 }
