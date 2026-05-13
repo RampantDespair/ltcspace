@@ -34,7 +34,7 @@ export class GroupPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.setTitle(`Mempool.Space Lightning Nodes`);
-    this.seoService.setDescription(`See all Lightning nodes run by mempool.space -- these are the nodes that provide the data on the mempool.space Lightning dashboard.`);
+    this.seoService.setDescription(`See all Lightning nodes run by Litecoin Space -- these are the nodes that provide the data on the Litecoin Space Lightning dashboard.`);
 
     this.nodes$ = this.activatedRoute.paramMap
       .pipe(

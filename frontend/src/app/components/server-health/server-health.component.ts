@@ -20,11 +20,11 @@ export class ServerHealthComponent implements OnInit {
   colors: Record<string, Record<string, string>> = {};
 
   repoMap = {
-    frontend: 'mempool',
-    hybrid: 'mempool.space',
-    backend: 'mempool',
-    electrs: 'electrs',
-    ssr: 'mempool.space',
+    frontend: 'ltcspace',
+    hybrid: 'litecoinspace.org',
+    backend: 'ltcspace',
+    electrs: 'electrs-ltc',
+    ssr: 'litecoinspace.org',
   };
 
   constructor(

@@ -113,7 +113,7 @@ const defaultEnv: Env = {
   'MEMPOOL_BLOCKS_AMOUNT': 8,
   'GIT_COMMIT_HASH': '',
   'PACKAGE_JSON_VERSION': '',
-  'MEMPOOL_WEBSITE_URL': 'https://mempool.space',
+  'MEMPOOL_WEBSITE_URL': 'https://litecoinspace.org',
   'LIQUID_WEBSITE_URL': 'https://liquid.network',
   'MINING_DASHBOARD': true,
   'LIGHTNING': false,
@@ -134,7 +134,7 @@ const defaultEnv: Env = {
   'PUBLIC_ACCELERATIONS': false,
   'ADDITIONAL_CURRENCIES': false,
   'STRATUM_ENABLED': false,
-  'SERVICES_API': 'https://mempool.space/api/v1/services',
+  'SERVICES_API': '',
   'PROD_DOMAINS': [],
 };
 
@@ -242,10 +242,6 @@ export class StateService {
 
     if (defaultEnv.BASE_MODULE !== 'mempool') {
       this.env.MINING_DASHBOARD = false;
-    }
-
-    if (document.location.hostname.endsWith('.onion')) {
-      this.env.SERVICES_API = 'http://mempoolhqx4isw62xs7abwphsq7ldayuidyx2v2oethdhhj6mlo2r6ad.onion/api/v1/services';
     }
 
     if (this.isBrowser) {

@@ -702,7 +702,7 @@ export const wsApiDocsData = [
     fragment: 'track-addresses',
     title: 'Track Addresses',
     description: {
-      default: 'Subscribe to multiple addresses to receive live updates on new transactions having these addresses in input or output. Limits on the maximum number of tracked addresses apply. For higher tracking limits, consider upgrading to an <a href=\'https://mempool.space/enterprise\'>enterprise sponsorship</a>.'
+      default: 'Subscribe to multiple addresses to receive live updates on new transactions having these addresses in input or output. Limits on the maximum number of tracked addresses apply.'
     },
     payload: `{
   "track-addresses": [
@@ -1296,7 +1296,7 @@ export const wsApiDocsData = [
     fragment: 'track-txs',
     title: 'Track Transactions',
     description: {
-      default: 'Subscribe to multiple transactions to receive live updates on their status and position in the mempool. Limits on the maximum number of tracked addresses apply. For higher tracking limits, consider upgrading to an <a href=\'https://mempool.space/enterprise\'>enterprise sponsorship</a>.'
+      default: 'Subscribe to multiple transactions to receive live updates on their status and position in the mempool. Limits on the maximum number of tracked addresses apply.'
     },
     payload: `{
       "track-txs": [
@@ -1489,7 +1489,7 @@ export const wsApiDocsData = [
     fragment: 'track-mempool',
     title: 'Track Mempool',
     description: {
-      default: 'Subscribe to new mempool events, such as new transactions entering the mempool. Available fields: <code>added</code>, <code>removed</code>, <code>mined</code>, <code>replaced</code>. <br> Because this is potentially a lot of data, consider using the <code>track-mempool-txids</code> endpoint described below instead, or upgrade to an <a href=\'https://mempool.space/enterprise\'>enterprise sponsorship</a>.'
+      default: 'Subscribe to new mempool events, such as new transactions entering the mempool. Available fields: <code>added</code>, <code>removed</code>, <code>mined</code>, <code>replaced</code>. <br> Because this is potentially a lot of data, consider using the <code>track-mempool-txids</code> endpoint described below instead.'
     },
     payload: '{ "track-mempool": true }',
     showConditions: bitcoinNetworks.concat(liquidNetworks),
@@ -2566,7 +2566,7 @@ export const restApiDocsData = [
     fragment: 'get-price',
     title: 'GET Price',
     description: {
-      default: 'Returns bitcoin latest price denominated in main currencies.'
+      default: 'Returns litecoin latest price denominated in main currencies.'
     },
     urlString: '/v1/prices',
     showConditions: [''],
@@ -2607,7 +2607,7 @@ export const restApiDocsData = [
     fragment: 'get-historical-price',
     title: 'GET Historical Price',
     description: {
-      default: 'Returns bitcoin historical price denominated in main currencies. Available query parameters: <code>currency</code>, <code>timestamp</code>. If no parameter is provided, the full price history for all currencies is returned.'
+      default: 'Returns litecoin historical price denominated in main currencies. Available query parameters: <code>currency</code>, <code>timestamp</code>. If no parameter is provided, the full price history for all currencies is returned.'
     },
     urlString: '/v1/historical-price?currency=EUR&timestamp=1500000000',
     showConditions: [''],
@@ -5370,7 +5370,7 @@ export const restApiDocsData = [
     fragment: 'get-blocks-bulk',
     title: 'GET Blocks (Bulk)',
     description: {
-      default: '<p>Returns details on the range of blocks between <code>:minHeight</code> and <code>:maxHeight</code>, inclusive, up to 10 blocks. If <code>:maxHeight</code> is not specified, it defaults to the current tip.</p><p>To return data for more than 10 blocks, consider becoming an <a href=\'https://mempool.space/enterprise\'>enterprise sponsor</a>.</p>'
+      default: '<p>Returns details on the range of blocks between <code>:minHeight</code> and <code>:maxHeight</code>, inclusive, up to 10 blocks. If <code>:maxHeight</code> is not specified, it defaults to the current tip.</p>'
     },
     urlString: '/v1/blocks-bulk/:minHeight[/:maxHeight]',
     showConditions: bitcoinNetworks,
@@ -7796,7 +7796,7 @@ export const restApiDocsData = [
     fragment: 'get-recommended-fees-precise',
     title: 'GET Recommended Fees (Precise)',
     description: {
-      default: 'Returns our currently-suggested feerates with up to 3 decimal places, including sub-sat feerates down to 0.1 s/vb.'
+      default: 'Returns our currently-suggested feerates with up to 3 decimal places, including sub-lit feerates down to 0.1 l/vb.'
     },
     urlString: '/v1/fees/precise',
     showConditions: bitcoinNetworks.concat(liquidNetworks),
@@ -9957,7 +9957,7 @@ export const restApiDocsData = [
     fragment: 'get-country-node-stats',
     title: 'GET Node Stats Per Country',
     description: {
-      default: '<p>Returns aggregate capacity and number of clearnet nodes per country. Capacity figures are in satoshis.</p>'
+      default: '<p>Returns aggregate capacity and number of clearnet nodes per country. Capacity figures are in litoshis.</p>'
     },
     urlString: '/v1/lightning/nodes/countries',
     showConditions: lightningNetworks,
@@ -10220,7 +10220,7 @@ export const restApiDocsData = [
     fragment: 'get-isp-node-stats',
     title: 'GET Node Stats Per ISP',
     description: {
-      default: '<p>Returns aggregate capacity, number of nodes, and number of channels per ISP. Capacity figures are in satoshis.</p>'
+      default: '<p>Returns aggregate capacity, number of nodes, and number of channels per ISP. Capacity figures are in litoshis.</p>'
     },
     urlString: '/v1/lightning/nodes/isp-ranking',
     showConditions: lightningNetworks,
@@ -12780,7 +12780,7 @@ export const faqData = [
     category: 'advanced',
     showConditions: bitcoinNetworks,
     fragment: 'how-big-is-mempool-used-by-mempool-space',
-    title: 'How big is the mempool used by mempool.space?',
+    title: 'How big is the mempool used by Litecoin Space?',
     options: { officialOnly: true },
   },
   {
@@ -13023,7 +13023,7 @@ export const electrumApiDocsData = [
     fragment: 'blockchain-estimatefee',
     title: 'blockchain.estimatefee',
     description: {
-      default: 'Returns the estimated transaction fee for confirmation within a given number of blocks. Returns fee in BTC/kB, or -1 if estimation is not available.'
+      default: 'Returns the estimated transaction fee for confirmation within a given number of blocks. Returns fee in LTC/kB, or -1 if estimation is not available.'
     },
     showConditions: bitcoinNetworks.concat(liquidNetworks),
     requestExample: '{"jsonrpc":"2.0","id":1,"method":"blockchain.estimatefee","params":[6]}',
@@ -13039,7 +13039,7 @@ export const electrumApiDocsData = [
     fragment: 'blockchain-relayfee',
     title: 'blockchain.relayfee',
     description: {
-      default: 'Returns the minimum relay fee for low-priority transactions in BTC/kB.'
+      default: 'Returns the minimum relay fee for low-priority transactions in LTC/kB.'
     },
     showConditions: bitcoinNetworks.concat(liquidNetworks),
     requestExample: '{"jsonrpc":"2.0","id":1,"method":"blockchain.relayfee","params":[]}',
@@ -13347,7 +13347,7 @@ export const electrumApiDocsData = [
     fragment: 'mempool-get-fee-histogram',
     title: 'mempool.get_fee_histogram',
     description: {
-      default: 'Returns a histogram of transaction fees in the mempool. Each entry is a pair of [fee_rate, cumulative_vsize] where fee_rate is in satoshis per virtual byte.'
+      default: 'Returns a histogram of transaction fees in the mempool. Each entry is a pair of [fee_rate, cumulative_vsize] where fee_rate is in litoshis per virtual byte.'
     },
     showConditions: bitcoinNetworks.concat(liquidNetworks),
     requestExample: '{"jsonrpc":"2.0","id":1,"method":"mempool.get_fee_histogram","params":[]}',

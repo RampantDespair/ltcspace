@@ -305,8 +305,8 @@ export class NodesChannelsMap implements OnInit {
               const data = value.data;
               const alias = data[4].length > 0 ? data[4] : data[3].slice(0, 20);
               const liquidity = data[5] >= 100000000 ?
-              `${this.amountShortenerPipe.transform(data[5] / 100000000)} BTC` :
-              `${this.amountShortenerPipe.transform(data[5], 2)} sats`;
+              `${this.amountShortenerPipe.transform(data[5] / 100000000)} LTC` :
+              `${this.amountShortenerPipe.transform(data[5], 2)} lits`;
 
               return `
               <b style="color: white">${alias}</b><br>
