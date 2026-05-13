@@ -171,12 +171,7 @@
               "src/robots.txt",
               "src/config.js",
               "src/customize.js",
-              "src/config.template.js",
-              {
-                "glob": "*.css",
-                "input": ".theme-build",
-                "output": "/"
-              }
+              "src/config.template.js"
             ],
             "styles": [
               "src/styles.scss",

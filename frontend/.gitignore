@@ -5,8 +5,6 @@
 /tmp
 /out-tsc
 server.run.js
-.theme-build
-theme-manifest.json
 
 # docker
 Dockerfile

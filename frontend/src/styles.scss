@@ -136,7 +136,7 @@ $dropdown-link-active-bg: $active-bg;
   --taproot-dark: #9d7c05;
 
   --green: #83fd00;
-  --red: #ff3d00;
+  --red: #dc3545;
   --yellow: #fff000;
   --grey: #7e7e7e;
   --tooltip-grey: #b1b1b1;
@@ -181,7 +181,7 @@ main {
   position: relative;
   min-width: 0;
   word-wrap: break-word;
-  background-color: var(--box-bg);
+  background-color: #0d0d0d;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
   box-shadow: 0.125rem 0.125rem 0.25rem rgba(0,0,0,0.075);

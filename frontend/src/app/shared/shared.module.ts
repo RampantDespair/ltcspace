@@ -39,7 +39,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LanguageSelectorComponent } from '@components/language-selector/language-selector.component';
 import { FiatSelectorComponent } from '@components/fiat-selector/fiat-selector.component';
 import { RateUnitSelectorComponent } from '@components/rate-unit-selector/rate-unit-selector.component';
-import { ThemeSelectorComponent } from '@components/theme-selector/theme-selector.component';
 import { AmountSelectorComponent } from '@components/amount-selector/amount-selector.component';
 import { TimezoneSelectorComponent } from '@components/timezone-selector/timezone-selector.component';
 import { BrowserOnlyDirective } from '@app/shared/directives/browser-only.directive';
@@ -137,7 +136,6 @@ import { GithubLogin } from '@components/github-login.component/github-login.com
     TxFeeRatingComponent,
     LanguageSelectorComponent,
     FiatSelectorComponent,
-    ThemeSelectorComponent,
     RateUnitSelectorComponent,
     AmountSelectorComponent,
     TimezoneSelectorComponent,
@@ -290,7 +288,6 @@ import { GithubLogin } from '@components/github-login.component/github-login.com
     LanguageSelectorComponent,
     FiatSelectorComponent,
     RateUnitSelectorComponent,
-    ThemeSelectorComponent,
     AmountSelectorComponent,
     TimezoneSelectorComponent,
     ScriptpubkeyTypePipe,
