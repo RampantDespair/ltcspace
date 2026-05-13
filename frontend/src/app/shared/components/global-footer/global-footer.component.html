@@ -14,11 +14,9 @@
         @if (!enterpriseInfo?.footer_img) {
           <p class="explore-tagline-mobile">
             @if (officialMempoolSpace) {
-              <ng-container i18n="@@7deec1c1520f06170e1f8e8ddfbe4532312f638f">Explore the full Bitcoin ecosystem</ng-container>
-              <ng-template [ngIf]="locale.substr(0, 2) === 'en'">&reg;</ng-template>  
+              <ng-container i18n="@@7deec1c1520f06170e1f8e8ddfbe4532312f638f">Your Gateway to Explore Litecoin</ng-container>
             } @else {
-              <ng-container i18n="shared.be-your-own-explorer">Be your own explorer</ng-container>
-              <ng-template [ngIf]="locale.substr(0, 2) === 'en'">&trade;</ng-template>
+              <ng-container i18n="shared.be-your-own-explorer">Your Gateway to explore Litecoin's Blockchain</ng-container>
             }
           </p>
         }
@@ -58,11 +56,9 @@
           </a>
           <p class="explore-tagline-desktop">
             @if (officialMempoolSpace) {
-              <ng-container i18n="@@7deec1c1520f06170e1f8e8ddfbe4532312f638f">Explore the full Bitcoin ecosystem</ng-container>
-              <ng-template [ngIf]="locale.substr(0, 2) === 'en'">&reg;</ng-template>  
+              <ng-container i18n="@@7deec1c1520f06170e1f8e8ddfbe4532312f638f">Your Gateway to Explore Litecoin</ng-container>
             } @else {
-              <ng-container i18n="shared.be-your-own-explorer">Be your own explorer</ng-container>
-              <ng-template [ngIf]="locale.substr(0, 2) === 'en'">&trade;</ng-template>
+              <ng-container i18n="shared.be-your-own-explorer">Your Gateway to explore Litecoin's Blockchain</ng-container>
             }
           </p>
         }
@@ -86,7 +82,7 @@
           <p><a [routerLink]="['/docs/faq']" fragment="what-is-a-block-explorer" i18n="faq.what-is-a-block-exlorer">What is a block explorer?</a></p>
           <p><a [routerLink]="['/docs/faq']" fragment="what-is-a-mempool-explorer" i18n="faq.what-is-a-mempool-exlorer">What is a mempool explorer?</a></p>
           <p><a [routerLink]="['/docs/faq']" fragment="why-is-transaction-stuck-in-mempool" i18n="faq.why-isnt-my-transaction-confirming">Why isn't my transaction confirming?</a></p>
-          <p><a [routerLink]="['/docs/faq']" fragment="host-my-own-instance-raspberry-pi"><ng-container i18n="shared.be-your-own-explorer">Be your own explorer</ng-container><ng-template [ngIf]="locale.substr(0, 2) === 'en'">&trade;</ng-template></a></p>
+          <p><a [routerLink]="['/docs/faq']" fragment="host-my-own-instance-raspberry-pi"><ng-container i18n="shared.be-your-own-explorer">Your Gateway to explore Litecoin's Blockchain</ng-container></a></p>
           <p><a [routerLink]="['/docs/faq' | relativeUrl]" i18n="faq.more-faq">More FAQs &raquo;</a></p>
           <p *ngIf="mempoolSpaceBuild"><a [routerLink]="['/research' | relativeUrl]" i18n="mempool-research">Research</a></p>
         </div>

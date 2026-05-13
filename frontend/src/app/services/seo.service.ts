@@ -10,7 +10,7 @@ import { StateService } from '@app/services/state.service';
 export class SeoService {
   network = '';
   baseTitle = 'Litecoin Space';
-  baseDescription = 'Explore the full Litecoin ecosystem with Litecoin Space&reg;.';
+  baseDescription = 'Explore the full Litecoin ecosystem with Litecoin Space.';
   baseDomain = 'litecoinspace.org';
 
   canonicalLink: HTMLLinkElement = document.getElementById('canonical') as HTMLLinkElement;

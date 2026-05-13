@@ -44,10 +44,10 @@ export class GroupPreviewComponent implements OnInit {
           this.ogSession = this.openGraphService.waitFor('ln-group-data-' + this.slug);
 
           if (this.slug === 'the-mempool-open-source-project') {
-            this.groupId = 'mempool.space';
+            this.groupId = 'litecoinspace.org';
             this.group = {
-              name: 'The Mempool Open Source Project',
-              description: 'These are the Lightning nodes operated by The Mempool Open Source Project that provide data for the mempool.space website. Connect to us!',
+              name: 'Litecoin Space',
+              description: 'These are the Lightning nodes operated by Litecoin Space that provide data for the litecoinspace.org website. Connect to us!',
             };
           } else {
             this.group = {

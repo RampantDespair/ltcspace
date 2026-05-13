@@ -12689,7 +12689,7 @@ export const faqData = [
     category: 'basics',
     showConditions: bitcoinNetworks,
     fragment: 'what-is-svb',
-    title: 'What is sat/vB?',
+    title: 'What is lit/vB?',
   },
   {
     type: 'category',
@@ -12832,7 +12832,7 @@ export const faqData = [
     category: 'advanced',
     showConditions: bitcoinNetworks,
     fragment: 'how-do-mempool-goggles-work',
-    title: 'How do Mempool Goggles™ work?',
+    title: 'How does Mempool Analysis work?',
   },
   {
     type: 'endpoint',
