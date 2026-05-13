@@ -3360,6 +3360,65 @@ export const restApiDocsData = [
     type: 'endpoint',
     category: 'addresses',
     httpRequestMethod: 'GET',
+    fragment: 'get-address-utxo-hex',
+    title: 'GET Address UTXO with Hex',
+    description: {
+      default: 'Get the list of unspent transaction outputs associated with the address, including the raw transaction hex for each UTXO. Available fields: <code>txid</code>, <code>vout</code>, <code>value</code>, <code>status</code> (with the status of the funding tx), and <code>hex</code> (raw transaction hex). This endpoint combines the functionality of <code>/address/:address/utxo</code> and <code>/tx/:txid/hex</code> for improved efficiency.',
+    },
+    urlString: '/address/:address/utxo-hex',
+    showConditions: bitcoinNetworks,
+    showJsExamples: showJsExamplesDefaultFalse,
+    codeExample: {
+      default: {
+        codeTemplate: {
+          curl: `/api/address/%{1}/utxo-hex`,
+          commonJS: ``,
+          esModule: ``,
+        },
+        codeSampleMainnet: {
+          curl: [`ltc1q9yxj6rqwj2p8vqz6j7w3k9p8l2w9j4x5n6k7q`],
+          response: `[
+  {
+    txid: "a4b5c6d7e8f9012345678901234567890123456789012345678901234567890",
+    vout: 0,
+    status: {
+      confirmed: true,
+      block_height: 2450000,
+      block_hash: "000000000000000000012345678901234567890123456789012345678901234",
+      block_time: 1680000000
+    },
+    value: 100000000,
+    hex: "0100000001a1b2c3d4e5f6071829384756019283746501928374650192837465..."
+  },
+  ...
+]`
+        },
+        codeSampleTestnet: {
+          curl: [`tltc1q4kgratttzjvkxfmgd95z54qcq7y6hekdm3w56u`],
+          response: `[
+  {
+    txid: "c404bc4ba89e9423ff772cb45268ba6fba8b713f809484c1216f1a657aafa088",
+    vout: 1,
+    status: {
+      confirmed: true,
+      block_height: 2086944,
+      block_hash: "000000000000039a27007892b0f3ac646afa4eb3ef3d4a4e75e8bdf636b4d006",
+      block_time: 1630159123
+    },
+    value: 1973787,
+    hex: "01000000010a482dc0e4e74b4a9b1b1ff5e5d7b9b5f6f7a0c3f8b4c5b1c5b..."
+  },
+  ...
+]`
+        },
+        codeSampleSignet: emptyCodeSample,
+      }
+    }
+  },
+  {
+    type: 'endpoint',
+    category: 'addresses',
+    httpRequestMethod: 'GET',
     fragment: 'get-address-validate',
     title: 'GET Address Validation',
     description: {

@@ -15,10 +15,8 @@ import logger from './logger';
 import backendInfo from './api/backend-info';
 import loadingIndicators from './api/loading-indicators';
 import mempool from './api/mempool';
-import elementsParser from './api/liquid/elements-parser';
 import databaseMigration from './api/database-migration';
 import syncAssets from './sync-assets';
-import icons from './api/liquid/icons';
 import { Common } from './api/common';
 import poolsUpdater from './tasks/pools-updater';
 import indexer from './indexer';
@@ -30,7 +28,6 @@ import networkSyncService from './tasks/lightning/network-sync.service';
 import statisticsRoutes from './api/statistics/statistics.routes';
 import pricesRoutes from './api/prices/prices.routes';
 import miningRoutes from './api/mining/mining-routes';
-import liquidRoutes from './api/liquid/liquid.routes';
 import bitcoinRoutes from './api/bitcoin/bitcoin.routes';
 import servicesRoutes from './api/services/services-routes';
 import fundingTxFetcher from './tasks/lightning/sync-tasks/funding-tx-fetcher';
@@ -164,7 +161,7 @@ class Server {
 
     await poolsUpdater.updatePoolsJson(); // Needs to be done before loading the disk cache because we sometimes wipe it
     if (config.DATABASE.ENABLED === true && config.MEMPOOL.ENABLED && ['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK) && !poolsUpdater.currentSha) {
-      logger.err(`Failed to retreive pools-v2.json sha, cannot run block indexing. Please make sure you've set valid urls in your mempool-config.json::MEMPOOL::POOLS_JSON_URL and mempool-config.json::MEMPOOL::POOLS_JSON_TREE_UR, aborting now`);
+      logger.err(`Failed to retreive pools.json sha, cannot run block indexing. Please make sure you've set valid urls in your mempool-config.json::MEMPOOL::POOLS_JSON_URL and mempool-config.json::MEMPOOL::POOLS_JSON_TREE_UR, aborting now`);
       return process.exit(1);
     }
 
@@ -184,20 +181,6 @@ class Server {
 
     if (config.STATISTICS.ENABLED && config.DATABASE.ENABLED && cluster.isPrimary) {
       statistics.startStatistics();
-    }
-
-    if (Common.isLiquid()) {
-      const refreshIcons = () => {
-        try {
-          icons.loadIcons();
-        } catch (e) {
-          logger.err('Cannot load liquid icons. Ignoring. Reason: ' + (e instanceof Error ? e.message : e));
-        }
-      };
-      // Run once on startup.
-      refreshIcons();
-      // Matches crontab refresh interval for asset db.
-      setInterval(refreshIcons, 3600_000);
     }
 
     if (config.FIAT_PRICE.ENABLED) {
@@ -321,16 +304,6 @@ class Server {
       websocketHandler.addWebsocketServer(this.wssUnixSocket);
     }
 
-    if (Common.isLiquid() && config.DATABASE.ENABLED) {
-      blocks.setNewBlockCallback(async () => {
-        try {
-          await elementsParser.$parse();
-          await elementsParser.$updateFederationUtxos();
-        } catch (e) {
-          logger.warn('Elements parsing error: ' + (e instanceof Error ? e.message : e));
-        }
-      });
-    }
     websocketHandler.setupConnectionHandling();
     if (config.MEMPOOL.ENABLED) {
       statistics.setNewStatisticsEntryCallback(websocketHandler.handleNewStatistic.bind(websocketHandler));
@@ -342,7 +315,9 @@ class Server {
     }
     loadingIndicators.setProgressChangedCallback(websocketHandler.handleLoadingChanged.bind(websocketHandler));
 
-    void accelerationApi.connectWebsocket();
+    if (config.MEMPOOL_SERVICES.ACCELERATIONS) {
+      void accelerationApi.connectWebsocket();
+    }
     if (config.STRATUM.ENABLED) {
       void stratumApi.connectWebsocket();
     }
@@ -359,9 +334,6 @@ class Server {
     }
     if (Common.indexingEnabled() && config.MEMPOOL.ENABLED) {
       miningRoutes.initRoutes(this.app);
-    }
-    if (Common.isLiquid()) {
-      liquidRoutes.initRoutes(this.app);
     }
     if (config.LIGHTNING.ENABLED) {
       generalLightningRoutes.initRoutes(this.app);

@@ -131,8 +131,6 @@ interface IConfig {
   EXTERNAL_DATA_SERVER: {
     MEMPOOL_API: string;
     MEMPOOL_ONION: string;
-    LIQUID_API: string;
-    LIQUID_ONION: string;
   };
   MAXMIND: {
     ENABLED: boolean;
@@ -198,11 +196,11 @@ const defaults: IConfig = {
     'EXTERNAL_ASSETS': [],
     'EXTERNAL_MAX_RETRY': 1,
     'EXTERNAL_RETRY_INTERVAL': 0,
-    'USER_AGENT': 'mempool',
+    'USER_AGENT': 'mempoollite',
     'STDOUT_LOG_MIN_PRIORITY': 'debug',
     'AUTOMATIC_POOLS_UPDATE': false,
-    'POOLS_JSON_URL': 'https://raw.githubusercontent.com/mempool/mining-pools/master/pools-v2.json',
-    'POOLS_JSON_TREE_URL': 'https://api.github.com/repos/mempool/mining-pools/git/trees/master',
+    'POOLS_JSON_URL': 'https://raw.githubusercontent.com/litecoin-foundation/mining-pools-ltc/master/pools.json',
+    'POOLS_JSON_TREE_URL': 'https://api.github.com/repos/litecoin-foundation/mining-pools-ltc/git/trees/master',
     'POOLS_UPDATE_DELAY': 604800, // in seconds, default is one week
     'AUDIT': false,
     'RUST_GBT': true,
@@ -300,10 +298,8 @@ const defaults: IConfig = {
     'PASSWORD': ''
   },
   'EXTERNAL_DATA_SERVER': {
-    'MEMPOOL_API': 'https://mempool.space/api/v1',
-    'MEMPOOL_ONION': 'http://mempoolhqx4isw62xs7abwphsq7ldayuidyx2v2oethdhhj6mlo2r6ad.onion/api/v1',
-    'LIQUID_API': 'https://liquid.network/api/v1',
-    'LIQUID_ONION': 'http://liquidmom47f6s3m53ebfxn47p76a6tlnxib3wp6deux7wuzotdr6cyd.onion/api/v1'
+    'MEMPOOL_API': 'https://litecoinspace.org/api/v1',
+    'MEMPOOL_ONION': 'http://litecoinmempjyactki6qm7tqcok7wbp3qq7vsuyimbxewznm7m2eu2nyd.onion/api/v1'
   },
   'MAXMIND': {
     'ENABLED': false,
@@ -314,7 +310,7 @@ const defaults: IConfig = {
   'REPLICATION': {
     'ENABLED': false,
     'AUDIT': false,
-    'AUDIT_START_HEIGHT': 774000,
+    'AUDIT_START_HEIGHT': 0,
     'STATISTICS': false,
     'STATISTICS_START_TIME': 1481932800,
     'SERVERS': [],

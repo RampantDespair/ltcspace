@@ -9,7 +9,7 @@ import * as https from 'https';
 import { Common } from '../api/common';
 
 /**
- * Maintain the most recent version of pools-v2.json
+ * Maintain the most recent version of pools.json
  */
 class PoolsUpdater {
   tag = 'PoolsUpdater';
@@ -51,12 +51,12 @@ class PoolsUpdater {
         this.currentSha = await this.getShaFromDb();
       }
 
-      const githubSha = await this.fetchPoolsSha(); // Fetch pools-v2.json sha from github
+      const githubSha = await this.fetchPoolsSha(); // Fetch pools.json sha from github
       if (githubSha === null) {
         return;
       }
 
-      logger.debug(`pools-v2.json sha | Current: ${this.currentSha} | Github: ${githubSha}`, this.tag);
+      logger.debug(`pools.json sha | Current: ${this.currentSha} | Github: ${githubSha}`, this.tag);
       if (this.currentSha !== null && this.currentSha === githubSha) {
         return;
       }
@@ -73,9 +73,9 @@ class PoolsUpdater {
 
       const network = config.SOCKS5PROXY.ENABLED ? 'tor' : 'clearnet';
       if (this.currentSha === null) {
-        logger.info(`Downloading pools-v2.json for the first time from ${this.poolsUrl} over ${network}`, this.tag);
+        logger.info(`Downloading pools.json for the first time from ${this.poolsUrl} over ${network}`, this.tag);
       } else {
-        logger.warn(`pools-v2.json is outdated, fetching latest from ${this.poolsUrl} over ${network}`, this.tag);
+        logger.warn(`pools.json is outdated, fetching latest from ${this.poolsUrl} over ${network}`, this.tag);
       }
       const poolsJson = await this.query(this.poolsUrl);
       if (poolsJson === undefined) {
@@ -84,7 +84,7 @@ class PoolsUpdater {
       poolsParser.setMiningPools(poolsJson);
 
       if (config.DATABASE.ENABLED === false) { // Don't run db operations
-        logger.info(`Mining pools-v2.json (${githubSha}) import completed (no database)`, this.tag);
+        logger.info(`Mining pools.json (${githubSha}) import completed (no database)`, this.tag);
         return;
       }
 
@@ -97,7 +97,7 @@ class PoolsUpdater {
         logger.err(`Could not migrate mining pools, rolling back. Exception: ${JSON.stringify(e)}`, this.tag);
         await DB.query('ROLLBACK;');
       }
-      logger.info(`Mining pools-v2.json (${githubSha}) import completed`, this.tag);
+      logger.info(`Mining pools.json (${githubSha}) import completed`, this.tag);
 
     } catch (e) {
       // fast-forward lastRun to 10 minutes before the next scheduled update
@@ -107,7 +107,7 @@ class PoolsUpdater {
   }
 
   /**
-   * Fetch our latest pools-v2.json sha from the db
+   * Fetch our latest pools.json sha from the db
    */
   private async updateDBSha(githubSha: string): Promise<void> {
     this.currentSha = githubSha;
@@ -116,26 +116,26 @@ class PoolsUpdater {
         await DB.query('DELETE FROM state where name="pools_json_sha"');
         await DB.query(`INSERT INTO state VALUES('pools_json_sha', NULL, '${githubSha}')`);
       } catch (e) {
-        logger.err('Cannot save github pools-v2.json sha into the db. Reason: ' + (e instanceof Error ? e.message : e), this.tag);
+        logger.err('Cannot save github pools.json sha into the db. Reason: ' + (e instanceof Error ? e.message : e), this.tag);
       }
     }
   }
 
   /**
-   * Fetch our latest pools-v2.json sha from the db
+   * Fetch our latest pools.json sha from the db
    */
   public async getShaFromDb(): Promise<string | null> {
     try {
       const [rows]: any[] = await DB.query('SELECT string FROM state WHERE name="pools_json_sha"');
       return (rows.length > 0 ? rows[0].string : null);
     } catch (e) {
-      logger.err('Cannot fetch pools-v2.json sha from db. Reason: ' + (e instanceof Error ? e.message : e), this.tag);
+      logger.err('Cannot fetch pools.json sha from db. Reason: ' + (e instanceof Error ? e.message : e), this.tag);
       return null;
     }
   }
 
   /**
-   * Fetch our latest pools-v2.json sha from github
+   * Fetch our latest pools.json sha from github
    * @asyncUnsafe
    */
   private async fetchPoolsSha(): Promise<string | null> {
@@ -143,13 +143,13 @@ class PoolsUpdater {
 
     if (response !== undefined) {
       for (const file of response['tree']) {
-        if (file['path'] === 'pools-v2.json') {
+        if (file['path'] === 'pools.json') {
           return file['sha'];
         }
       }
     }
 
-    logger.err(`Cannot find "pools-v2.json" in git tree (${this.treeUrl})`, this.tag);
+    logger.err(`Cannot find "pools.json" in git tree (${this.treeUrl})`, this.tag);
     return null;
   }
 

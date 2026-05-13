@@ -1075,16 +1075,14 @@ class DatabaseMigration {
       }
 
       if (config.MEMPOOL.NETWORK !== 'liquid') {
-        // Apply all the liquid specific migrations to all other networks
+        // Apply liquid-shared schema changes to all other networks.
+        // Federation tables (federation_addresses, federation_txos) are
+        // skipped for LTC — they are Liquid-federation specific and unused
+        // on Litecoin. Live ltcspace deployments are already past v94 so
+        // this block never re-fires; new LTC deploys simply skip the dead
+        // tables.
         // Version 68
         await this.$executeQuery('ALTER TABLE elements_pegs ADD PRIMARY KEY (txid, txindex);');
-        await this.$executeQuery(this.getCreateFederationAddressesTableQuery(), await this.$checkIfTableExists('federation_addresses'));
-        await this.$executeQuery(this.getCreateFederationTxosTableQuery(), await this.$checkIfTableExists('federation_txos'));
-
-        // Version 71
-        await this.$executeQuery('ALTER TABLE `federation_txos` ADD timelock INT NOT NULL DEFAULT 0');
-        await this.$executeQuery('ALTER TABLE `federation_txos` ADD expiredAt INT NOT NULL DEFAULT 0');
-        await this.$executeQuery('ALTER TABLE `federation_txos` ADD emergencyKey TINYINT NOT NULL DEFAULT 0');
 
         // Version 92
         await this.$executeQuery(`
@@ -1094,16 +1092,6 @@ class DatabaseMigration {
             ADD INDEX \`amount\` (\`amount\`),
             ADD INDEX \`bitcoinaddress\` (\`bitcoinaddress\`),
             ADD INDEX \`bitcointxid\` (\`bitcointxid\`)
-        `);
-
-        // Version 93
-        await this.$executeQuery(`
-          ALTER TABLE \`federation_txos\`
-            ADD INDEX \`unspent\` (\`unspent\`),
-            ADD INDEX \`lastblockupdate\` (\`lastblockupdate\`),
-            ADD INDEX \`blocktime\` (\`blocktime\`),
-            ADD INDEX \`emergencyKey\` (\`emergencyKey\`),
-            ADD INDEX \`expiredAt\` (\`expiredAt\`)
         `);
       }
 

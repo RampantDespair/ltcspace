@@ -38,6 +38,7 @@ class BitcoinRoutes {
       .get(config.MEMPOOL.API_URL_PREFIX + 'fees/recommended', this.getRecommendedFees)
       .get(config.MEMPOOL.API_URL_PREFIX + 'fees/precise', this.getPreciseRecommendedFees)
       .get(config.MEMPOOL.API_URL_PREFIX + 'fees/mempool-blocks', this.getMempoolBlocks)
+      .get(config.MEMPOOL.API_URL_PREFIX + 'fees/recommended-lnd', this.getRecommendedFeesForLnd)
       .get(config.MEMPOOL.API_URL_PREFIX + 'backend-info', this.getBackendInfo)
       .get(config.MEMPOOL.API_URL_PREFIX + 'init-data', this.getInitData)
       .get(config.MEMPOOL.API_URL_PREFIX + 'validate-address/:address', this.validateAddress)
@@ -130,6 +131,26 @@ class BitcoinRoutes {
       return;
     }
     const result = feeApi.getPreciseRecommendedFee();
+    res.json(result);
+  }
+
+  private async getRecommendedFeesForLnd(req: Request, res: Response) {
+    if (!mempool.isInSync()) {
+      res.statusCode = 503;
+      res.send('Service Unavailable');
+      return;
+    }
+    const currentBlockHash = await bitcoinApi.$getBlockHashTip();
+    const recommendedFees = feeApi.getRecommendedFee();
+    const result = {
+      'current_block_hash': currentBlockHash,
+      'fee_by_block_target': {
+        '1': recommendedFees['fastestFee'] * 1000,
+        '2': recommendedFees['halfHourFee'] * 1000,
+        '3': recommendedFees['hourFee'] * 1000,
+        '24': recommendedFees['economyFee'] * 1000,
+      },
+    };
     res.json(result);
   }
 
@@ -483,11 +504,11 @@ class BitcoinRoutes {
 
   private async getBlocks(req: Request, res: Response) {
     try {
-      if (['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK)) { // Bitcoin
+      if (['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK)) {
         const height = req.params.height === undefined ? undefined : parseInt(req.params.height, 10);
         res.setHeader('Expires', new Date(Date.now() + 1000 * 60).toUTCString());
         res.json(await blocks.$getBlocks(height, 15));
-      } else { // Liquid
+      } else {
         return await this.getLegacyBlocks(req, res);
       }
     } catch (e) {
@@ -497,10 +518,6 @@ class BitcoinRoutes {
 
   private async getBlocksByBulk(req: Request, res: Response) {
     try {
-      if (['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK) === false) { // Liquid - Not implemented
-        handleError(req, res, 404, `This API is only available for Bitcoin networks`);
-        return;
-      }
       if (config.MEMPOOL.MAX_BLOCKS_BULK_QUERY <= 0) {
         handleError(req, res, 404, `This API is disabled. Set config.MEMPOOL.MAX_BLOCKS_BULK_QUERY to a positive number to enable it.`);
         return;
@@ -539,7 +556,7 @@ class BitcoinRoutes {
 
   private async getChainTips(req: Request, res: Response) {
     try {
-      if (['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK)) { // Bitcoin
+      if (['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK)) {
         res.setHeader('Expires', new Date(Date.now() + 1000 * 60).toUTCString());
         const tips = await chainTips.getChainTips();
         if (tips.length > 0) {
@@ -548,8 +565,8 @@ class BitcoinRoutes {
           handleError(req, res, 503, `Temporarily unavailable`);
           return;
         }
-      } else { // Liquid
-        handleError(req, res, 404, `This API is only available for Bitcoin networks`);
+      } else {
+        handleError(req, res, 404, `This API is only available for Litecoin networks`);
         return;
       }
     } catch (e) {
@@ -559,7 +576,7 @@ class BitcoinRoutes {
 
   private async getStaleTips(req: Request, res: Response) {
     try {
-      if (['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK)) { // Bitcoin
+      if (['mainnet', 'testnet', 'signet', 'testnet4', 'regtest'].includes(config.MEMPOOL.NETWORK)) {
         res.setHeader('Expires', new Date(Date.now() + 1000 * 60).toUTCString());
         const tips = await chainTips.getStaleTips();
         if (tips.length > 0) {
@@ -568,8 +585,8 @@ class BitcoinRoutes {
           handleError(req, res, 503, `Temporarily unavailable`);
           return;
         }
-      } else { // Liquid
-        handleError(req, res, 404, `This API is only available for Bitcoin networks`);
+      } else {
+        handleError(req, res, 404, `This API is only available for Litecoin networks`);
         return;
       }
     } catch (e) {
