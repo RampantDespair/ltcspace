@@ -54,7 +54,7 @@ load_rc_config ${name}
 # set up dependant variables
 procname="${command}"
 required_files="${bitcoin_testnet_config_file}"
-pidfile="${bitcoin_testnet_data_dir}/testnet3/bitcoind.pid"
+pidfile="${bitcoin_testnet_data_dir}/testnet4/bitcoind.pid"
 
 bitcoin_testnet_checkconfig()
 {
