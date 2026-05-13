@@ -8,8 +8,6 @@ export interface ApiPrice {
   USD: number,
   EUR: number,
   GBP: number,
-  CAD: number,
-  CHF: number,
   AUD: number,
   JPY: number,
   BGN: number,
@@ -46,8 +44,6 @@ const ApiPriceFields = config.FIAT_PRICE.API_KEY ?
       USD,
       EUR,
       GBP,
-      CAD,
-      CHF,
       AUD,
       JPY,
       BGN,
@@ -82,8 +78,6 @@ const ApiPriceFields = config.FIAT_PRICE.API_KEY ?
       USD,
       EUR,
       GBP,
-      CAD,
-      CHF,
       AUD,
       JPY
     `;
@@ -91,8 +85,6 @@ const ApiPriceFields = config.FIAT_PRICE.API_KEY ?
 export interface ExchangeRates {
   USDEUR: number,
   USDGBP: number,
-  USDCAD: number,
-  USDCHF: number,
   USDAUD: number,
   USDJPY: number,
   USDBGN?: number,
@@ -132,8 +124,6 @@ export const MAX_PRICES = {
   USD: 100000000,
   EUR: 100000000,
   GBP: 100000000,
-  CAD: 100000000,
-  CHF: 100000000,
   AUD: 100000000,
   JPY: 10000000000,
   BGN: 1000000000,
@@ -175,23 +165,23 @@ class PricesRepository {
     // Sanity check
     for (const currency of Object.keys(prices)) {
       if (prices[currency] < -1 || prices[currency] > MAX_PRICES[currency]) { // We use -1 to mark a "missing data, so it's a valid entry"
-        logger.info(`Ignore BTC${currency} price of ${prices[currency]}`);
+        logger.info(`Ignore LTC${currency} price of ${prices[currency]}`);
         prices[currency] = 0;
       }
     }
 
     try {
-      if (!config.FIAT_PRICE.API_KEY) { // Store only the 7 main currencies
+      if (!config.FIAT_PRICE.API_KEY) { // Store only the 5 main currencies
           await DB.query(`
-          INSERT INTO prices(time,             USD, EUR, GBP, CAD, CHF, AUD, JPY)
-          VALUE             (FROM_UNIXTIME(?), ?,   ?,   ?,   ?,   ?,   ?,   ?  )`,
-          [time, prices.USD, prices.EUR, prices.GBP, prices.CAD, prices.CHF, prices.AUD, prices.JPY]
+          INSERT INTO prices(time,             USD, EUR, GBP, AUD, JPY)
+          VALUE             (FROM_UNIXTIME(?), ?,   ?,   ?,   ?,   ?  )`,
+          [time, prices.USD, prices.EUR, prices.GBP, prices.AUD, prices.JPY]
         );
-      } else { // Store all 7 main currencies + all the currencies obtained with the external API
+      } else { // Store all 5 main currencies + all the currencies obtained with the external API
         await DB.query(`
-          INSERT INTO prices(time,             USD, EUR, GBP, CAD, CHF, AUD, JPY, BGN, BRL, CNY, CZK, DKK, HKD, HRK, HUF, IDR, ILS, INR, ISK, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, ZAR)
-          VALUE             (FROM_UNIXTIME(?), ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?  , ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?  , ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?  , ?  )`,
-          [time, prices.USD, prices.EUR, prices.GBP, prices.CAD, prices.CHF, prices.AUD, prices.JPY, prices.BGN, prices.BRL, prices.CNY, prices.CZK, prices.DKK,
+          INSERT INTO prices(time,             USD, EUR, GBP, AUD, JPY, BGN, BRL, CNY, CZK, DKK, HKD, HRK, HUF, IDR, ILS, INR, ISK, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, ZAR)
+          VALUE             (FROM_UNIXTIME(?), ?,   ?,   ?,   ?,   ?,   ?  , ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?  , ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?,   ?  , ?  )`,
+          [time, prices.USD, prices.EUR, prices.GBP, prices.AUD, prices.JPY, prices.BGN, prices.BRL, prices.CNY, prices.CZK, prices.DKK,
                 prices.HKD, prices.HRK, prices.HUF, prices.IDR, prices.ILS, prices.INR, prices.ISK, prices.KRW, prices.MXN, prices.MYR, prices.NOK, prices.NZD,
                 prices.PHP, prices.PLN, prices.RON, prices.RUB, prices.SEK, prices.SGD, prices.THB, prices.TRY, prices.ZAR]
         );
@@ -272,26 +262,24 @@ class PricesRepository {
   }
 
   /** @asyncUnsafe */
-  public async $getPricesTimesWithMissingFields(): Promise<{time: number, USD: number, eur_missing: boolean, gbp_missing: boolean, cad_missing: boolean, chf_missing: boolean, aud_missing: boolean, jpy_missing: boolean}[]> {
+  public async $getPricesTimesWithMissingFields(): Promise<{time: number, USD: number, eur_missing: boolean, gbp_missing: boolean, aud_missing: boolean, jpy_missing: boolean}[]> {
     const [times] = await DB.query(`
-      SELECT UNIX_TIMESTAMP(time) AS time, 
-             USD, 
+      SELECT UNIX_TIMESTAMP(time) AS time,
+             USD,
              CASE WHEN EUR = -1 THEN TRUE ELSE FALSE END AS eur_missing,
              CASE WHEN GBP = -1 THEN TRUE ELSE FALSE END AS gbp_missing,
-             CASE WHEN CAD = -1 THEN TRUE ELSE FALSE END AS cad_missing,
-             CASE WHEN CHF = -1 THEN TRUE ELSE FALSE END AS chf_missing,
              CASE WHEN AUD = -1 THEN TRUE ELSE FALSE END AS aud_missing,
              CASE WHEN JPY = -1 THEN TRUE ELSE FALSE END AS jpy_missing
       FROM prices
-      WHERE USD != -1 
-      AND -1 IN (EUR, GBP, CAD, CHF, AUD, JPY, BGN, BRL, CNY, CZK, DKK, HKD, HRK, HUF, IDR, ILS, INR, ISK, KRW, 
+      WHERE USD != -1
+      AND -1 IN (EUR, GBP, AUD, JPY, BGN, BRL, CNY, CZK, DKK, HKD, HRK, HUF, IDR, ILS, INR, ISK, KRW,
                  MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, ZAR)
       ORDER BY time DESC
     `);
     if (!Array.isArray(times)) {
       return [];
     }
-    return times as {time: number, USD: number, eur_missing: boolean, gbp_missing: boolean, cad_missing: boolean, chf_missing: boolean, aud_missing: boolean, jpy_missing: boolean}[];
+    return times as {time: number, USD: number, eur_missing: boolean, gbp_missing: boolean, aud_missing: boolean, jpy_missing: boolean}[];
   }
 
   /** @asyncUnsafe */
@@ -363,8 +351,6 @@ class PricesRepository {
         {
           USDEUR: computeFx(latestPrice.USD, latestPrice.EUR),
           USDGBP: computeFx(latestPrice.USD, latestPrice.GBP),
-          USDCAD: computeFx(latestPrice.USD, latestPrice.CAD),
-          USDCHF: computeFx(latestPrice.USD, latestPrice.CHF),
           USDAUD: computeFx(latestPrice.USD, latestPrice.AUD),
           USDJPY: computeFx(latestPrice.USD, latestPrice.JPY),
           USDBGN: computeFx(latestPrice.USD, latestPrice.BGN),
@@ -396,8 +382,6 @@ class PricesRepository {
         } : {
           USDEUR: computeFx(latestPrice.USD, latestPrice.EUR),
           USDGBP: computeFx(latestPrice.USD, latestPrice.GBP),
-          USDCAD: computeFx(latestPrice.USD, latestPrice.CAD),
-          USDCHF: computeFx(latestPrice.USD, latestPrice.CHF),
           USDAUD: computeFx(latestPrice.USD, latestPrice.AUD),
           USDJPY: computeFx(latestPrice.USD, latestPrice.JPY),
       };
@@ -462,8 +446,6 @@ class PricesRepository {
         {
           USDEUR: computeFx(latestPrice.USD, latestPrice.EUR),
           USDGBP: computeFx(latestPrice.USD, latestPrice.GBP),
-          USDCAD: computeFx(latestPrice.USD, latestPrice.CAD),
-          USDCHF: computeFx(latestPrice.USD, latestPrice.CHF),
           USDAUD: computeFx(latestPrice.USD, latestPrice.AUD),
           USDJPY: computeFx(latestPrice.USD, latestPrice.JPY),
           USDBGN: computeFx(latestPrice.USD, latestPrice.BGN),
@@ -495,8 +477,6 @@ class PricesRepository {
         } : {
           USDEUR: computeFx(latestPrice.USD, latestPrice.EUR),
           USDGBP: computeFx(latestPrice.USD, latestPrice.GBP),
-          USDCAD: computeFx(latestPrice.USD, latestPrice.CAD),
-          USDCHF: computeFx(latestPrice.USD, latestPrice.CHF),
           USDAUD: computeFx(latestPrice.USD, latestPrice.AUD),
           USDJPY: computeFx(latestPrice.USD, latestPrice.JPY),
       };

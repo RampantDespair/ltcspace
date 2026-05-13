@@ -546,24 +546,30 @@ class Mining {
       const blocksWithoutPrices: any[] = await BlocksRepository.$getBlocksWithoutPrice();
 
       const blocksPrices: BlockPrice[] = [];
+      let priceIndex = 0;
 
       for (const block of blocksWithoutPrices) {
-        // Quick optimisation, out mtgox feed only goes back to 2010-07-19 02:00:00, so skip the first 68951 blocks
-        if (['mainnet', 'testnet'].includes(config.MEMPOOL.NETWORK) && block.height < 68951) {
+        // Quick optimisation, our Kraken feed only goes back to 2013-09-12 00:00:00, so skip the first 422806 blocks
+        if (['mainnet', 'testnet'].includes(config.MEMPOOL.NETWORK) && block.height < 422806) {
           blocksPrices.push({
             height: block.height,
             priceId: prices[0].id,
           });
           continue;
         }
-        for (const price of prices) {
-          if (block.timestamp < price.time) {
-            blocksPrices.push({
-              height: block.height,
-              priceId: price.id,
-            });
-            break;
-          };
+        // Back up if needed (handles minor timestamp non-monotonicity between consecutive blocks)
+        while (priceIndex > 0 && prices[priceIndex - 1].time > block.timestamp) {
+          priceIndex--;
+        }
+        // Advance to the first price recorded after this block's timestamp
+        while (priceIndex < prices.length && prices[priceIndex].time <= block.timestamp) {
+          priceIndex++;
+        }
+        if (priceIndex < prices.length) {
+          blocksPrices.push({
+            height: block.height,
+            priceId: prices[priceIndex].id,
+          });
         }
 
         if (blocksPrices.length >= 100000) {
