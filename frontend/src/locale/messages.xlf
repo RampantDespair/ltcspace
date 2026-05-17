@@ -399,6 +399,10 @@
           <context context-type="sourcefile">src/app/components/faucet/faucet.component.html</context>
           <context context-type="linenumber">80</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
         <note priority="1" from="description">shared.address</note>
       </trans-unit>
       <trans-unit id="04ffd930e7a2dc086c952a3a51b42c836bf21cc1" datatype="html">
@@ -445,23 +449,23 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">477</context>
+          <context context-type="linenumber">478</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">509</context>
+          <context context-type="linenumber">510</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">547</context>
+          <context context-type="linenumber">548</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">586</context>
+          <context context-type="linenumber">587</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">612</context>
+          <context context-type="linenumber">613</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/blocks-list/blocks-list.component.html</context>
@@ -2003,23 +2007,23 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">473</context>
+          <context context-type="linenumber">474</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">500</context>
+          <context context-type="linenumber">501</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">536</context>
+          <context context-type="linenumber">537</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">575</context>
+          <context context-type="linenumber">576</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">608</context>
+          <context context-type="linenumber">609</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/transaction/transaction-raw.component.html</context>
@@ -2095,6 +2099,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
           <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">shared.block-title</note>
       </trans-unit>
@@ -2177,23 +2185,23 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">467</context>
+          <context context-type="linenumber">468</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">488</context>
+          <context context-type="linenumber">489</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">525</context>
+          <context context-type="linenumber">526</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">564</context>
+          <context context-type="linenumber">565</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">604</context>
+          <context context-type="linenumber">605</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mempool-block/mempool-block.component.html</context>
@@ -2227,7 +2235,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">412</context>
+          <context context-type="linenumber">413</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/blockchain-blocks/blockchain-blocks.component.html</context>
@@ -2249,7 +2257,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">413</context>
+          <context context-type="linenumber">414</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/blockchain-blocks/blockchain-blocks.component.html</context>
@@ -2719,7 +2727,7 @@
         <source>Error loading block data.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">444</context>
+          <context context-type="linenumber">445</context>
         </context-group>
         <note priority="1" from="description">block.error.loading-block-data</note>
       </trans-unit>
@@ -2727,7 +2735,7 @@
         <source>Why is this block empty?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">458</context>
+          <context context-type="linenumber">459</context>
         </context-group>
         <note priority="1" from="description">block.empty-block-explanation</note>
       </trans-unit>
@@ -2735,7 +2743,7 @@
         <source>Acceleration fees paid out-of-band</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/block/block.component.html</context>
-          <context context-type="linenumber">491</context>
+          <context context-type="linenumber">492</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/transaction/transaction-details/transaction-details.component.html</context>
@@ -2776,6 +2784,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/difficulty-adjustments-table/difficulty-adjustments-table.component.html</context>
           <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/pool/pool.component.html</context>
@@ -2921,7 +2933,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">98</context>
         </context-group>
         <note priority="1" from="description">shared.calculator</note>
       </trans-unit>
@@ -4114,6 +4126,378 @@
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="d43a7179aa40654dc365e8b4b71cd6147197a617" datatype="html">
+        <source>MWEB activity</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">mweb.section-title</note>
+      </trans-unit>
+      <trans-unit id="e94b4d8e45212aef39eb73fb80b2b5934af54801" datatype="html">
+        <source>After confirmation, MWEB transactions are aggregated by the protocol. Only block-level totals (supply change, kernel count, peg-ins) are recoverable.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">mweb.privacy-disclaimer</note>
+      </trans-unit>
+      <trans-unit id="3c247b190af578c2ceebf2ebdaefe2aed637f2f1" datatype="html">
+        <source>Kernels</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">mweb.kernels</note>
+      </trans-unit>
+      <trans-unit id="23b4db80cfba2937f6b087d8776cb5cd6725a16b" datatype="html">
+        <source>Inputs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">mweb.inputs</note>
+      </trans-unit>
+      <trans-unit id="93883f08c5e22b14770da46e1a5b724bab7d43fb" datatype="html">
+        <source>Outputs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">mweb.outputs</note>
+      </trans-unit>
+      <trans-unit id="d9375f0fd1c3e615c1f45311351ffa9256c80403" datatype="html">
+        <source>Supply change</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">mweb.supply-change</note>
+      </trans-unit>
+      <trans-unit id="ed8e165c1ab8ba9332a64611adfa10f81baaf623" datatype="html">
+        <source>Peg-in total</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-ins-total</note>
+      </trans-unit>
+      <trans-unit id="d9b491cd020d52bcc113aaf00bac026336393ec5" datatype="html">
+        <source>Peg-out total</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-outs-total</note>
+      </trans-unit>
+      <trans-unit id="2ed54661f8c2d54de66293a38c55b58a35691c69" datatype="html">
+        <source>Peg-outs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-outs-count</note>
+      </trans-unit>
+      <trans-unit id="926dd4c7e830240b502eb44b6c485815f563e595" datatype="html">
+        <source>Total fees</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="description">mweb.fees</note>
+      </trans-unit>
+      <trans-unit id="8695af53b9a67bd71ebef12444e44498bf48f79e" datatype="html">
+        <source>Peg-ins (canonical → MWEB)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <note priority="1" from="description">mweb.canonical-pegins</note>
+      </trans-unit>
+      <trans-unit id="7140c5ca01c739805dfd4d07cc0db8e79f53faf5" datatype="html">
+        <source>Source tx</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-in-source-tx</note>
+      </trans-unit>
+      <trans-unit id="8e1de33babf84f0c5a8ec4c0b85fd7fe3df954f8" datatype="html">
+        <source>vout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-in-vout</note>
+      </trans-unit>
+      <trans-unit id="5049e204c14c648691ac775a64fb504467aeb549" datatype="html">
+        <source>Value</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-in-value</note>
+      </trans-unit>
+      <trans-unit id="b0c01f41f6c71aeb79dee8e6bcf52275a3850fa3" datatype="html">
+        <source>Kernel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-in-kernel</note>
+      </trans-unit>
+      <trans-unit id="c133eae95f3adfae62e69aabb43e4ed0c67a1a1b" datatype="html">
+        <source>unmatched</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+        <note priority="1" from="description">mweb.unmatched</note>
+      </trans-unit>
+      <trans-unit id="bb8d4499c0db2a10fd195b6defc1c6909ca5b57e" datatype="html">
+        <source>Peg-outs (MWEB → canonical)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-block-section/mweb-block-section.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <note priority="1" from="description">mweb.pegouts</note>
+      </trans-unit>
+      <trans-unit id="13c7d4257ff25edbfc0cc1e322ad5b5bc7aaf89f" datatype="html">
+        <source>MWEB Explorer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <note priority="1" from="description">mweb.title</note>
+      </trans-unit>
+      <trans-unit id="26769e03922ac8a949f021d0307f886588a02032" datatype="html">
+        <source>MWEB indexer is catching up — data may be incomplete.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">mweb.syncing</note>
+      </trans-unit>
+      <trans-unit id="8a1a815030bb887e86f54ed39f6c505201c4341e" datatype="html">
+        <source>Current MWEB supply</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">mweb.current-supply</note>
+      </trans-unit>
+      <trans-unit id="3e6d76abe6a55ce0f479c33032299975c1296f9e" datatype="html">
+        <source>Last block:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">mweb.last-block-delta</note>
+      </trans-unit>
+      <trans-unit id="34a7d9763f15cc56e1ccdb44b6ddadbfa55b72d4" datatype="html">
+        <source>MWEB tip</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">mweb.tip</note>
+      </trans-unit>
+      <trans-unit id="948136d153747d90876219349845e4a67c4a156e" datatype="html">
+        <source>Kernels:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <note priority="1" from="description">mweb.kernels</note>
+      </trans-unit>
+      <trans-unit id="b34e18211e1a0c370e52d349011d701a5e778a18" datatype="html">
+        <source>Peg-ins:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">mweb.peg-ins</note>
+      </trans-unit>
+      <trans-unit id="ff28b2bbe54287a1fa8bb59f7fd5c7fb071a3977" datatype="html">
+        <source>Pending broadcasts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <note priority="1" from="description">mweb.pending</note>
+      </trans-unit>
+      <trans-unit id="93d2e404b66f7b7b0fa59859715b13b453c76680" datatype="html">
+        <source>View MWEB mempool →</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <note priority="1" from="description">mweb.view-mempool</note>
+      </trans-unit>
+      <trans-unit id="1bac6bf163c694313c3635ab58751aa6347793a6" datatype="html">
+        <source>What is MWEB?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <note priority="1" from="description">mweb.what-is-mweb</note>
+      </trans-unit>
+      <trans-unit id="648d436f6735238528316c2022b3bfc0367111d6" datatype="html">
+        <source> MimbleWimble Extension Block (MWEB) is a sidechain-style extension to a Litecoin block that holds private transactions. After confirmation, individual MWEB transactions are merged into block-level aggregates — only kernel counts, peg-in/peg-out totals, and supply change remain visible. Peg-ins move LTC from canonical Litecoin into MWEB; peg-outs move LTC back. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-dashboard/mweb-dashboard.component.html</context>
+          <context context-type="linenumber">79,84</context>
+        </context-group>
+        <note priority="1" from="description">mweb.what-is-mweb-body</note>
+      </trans-unit>
+      <trans-unit id="2b110a4fa0ade5f2628d04be116eb60bfd8fcc3a" datatype="html">
+        <source>MWEB Kernel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">mweb.kernel-title</note>
+      </trans-unit>
+      <trans-unit id="5a40ddacc8a2a8f037be46b7f975534038b1616b" datatype="html">
+        <source>Kernel ID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">mweb.kernel-id</note>
+      </trans-unit>
+      <trans-unit id="28febf8d016d496b6b5c501d9690a28fdc090473" datatype="html">
+        <source>Block hash</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">mweb.block-hash</note>
+      </trans-unit>
+      <trans-unit id="160f1ffbd26df073d0fbd02cf8ce0d8cea7603b0" datatype="html">
+        <source>Fee</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">mweb.fee</note>
+      </trans-unit>
+      <trans-unit id="7a40ec739bdc19149d95898ebc61f954e17c8fec" datatype="html">
+        <source>Peg-in value</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description">mweb.pegin-value</note>
+      </trans-unit>
+      <trans-unit id="6cdb1fea93d77c07950c0c76c6e0ad79ebbef084" datatype="html">
+        <source>Features</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">mweb.kernel-features</note>
+      </trans-unit>
+      <trans-unit id="dd0a558314b36815e84c200b4404c843f5f27461" datatype="html">
+        <source>Output spends</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">mweb.output-spends</note>
+      </trans-unit>
+      <trans-unit id="76f0c84a203315403632fcb7fd1eb1ce6803927e" datatype="html">
+        <source>Output ID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">mweb.output-id</note>
+      </trans-unit>
+      <trans-unit id="568cbedad0eb22f39e699d4666e72aa0d584d878" datatype="html">
+        <source>Spent at height</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description">mweb.spent-at-height</note>
+      </trans-unit>
+      <trans-unit id="fcde58253a4cfd52c228eebdae74e1be7a1ab714" datatype="html">
+        <source>Notes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-kernel/mweb-kernel.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+        <note priority="1" from="description">mweb.notes</note>
+      </trans-unit>
+      <trans-unit id="ca6d169b946568519bb40c7af71c0a3ba7f91285" datatype="html">
+        <source>MWEB Mempool</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">mweb.mempool-title</note>
+      </trans-unit>
+      <trans-unit id="73d63e73be9e89f3813bdd4f1b8d73a9341a695a" datatype="html">
+        <source>No pending MWEB broadcasts right now.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">mweb.mempool-empty</note>
+      </trans-unit>
+      <trans-unit id="40dc4c7d6d5209095d6422c9d907eb23d25d601f" datatype="html">
+        <source>Observed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">mweb.mempool-observed</note>
+      </trans-unit>
+      <trans-unit id="77a5fbcce9b0c7421b91d467fd7c33f4b4d7f69c" datatype="html">
+        <source>Tx ID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">mweb.mempool-tx-id</note>
+      </trans-unit>
+      <trans-unit id="81b97b8ea996ad1e4f9fca8415021850214884b1" datatype="html">
+        <source>Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mweb/mweb-mempool/mweb-mempool.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">mweb.mempool-status</note>
+      </trans-unit>
       <trans-unit id="667d1fa0b03107009b84c29319f1393e93992788" datatype="html">
         <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Mint<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;amount&quot;&gt;"/> <x id="INTERPOLATION" equiv-text="{{ minted &gt;= 100000 ? (minted | amountShortener:undefined:undefined:true) : minted }}"/> <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container *ngTemplateOutlet=&quot;runeName; context: { $implicit: runestone.mint.toString() }&quot;&gt;"/><x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/></source>
         <context-group purpose="location">
@@ -4722,7 +5106,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">66</context>
         </context-group>
         <note priority="1" from="description">Broadcast Transaction</note>
         <note priority="1" from="meaning">shared.broadcast-transaction</note>
@@ -5256,7 +5640,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">96</context>
         </context-group>
         <note priority="1" from="description">footer.clock-mempool</note>
       </trans-unit>
@@ -5554,7 +5938,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">68</context>
         </context-group>
         <note priority="1" from="description">Preview Transaction</note>
         <note priority="1" from="meaning">shared.preview-transaction</note>
@@ -8467,7 +8851,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">78</context>
         </context-group>
         <note priority="1" from="description">shared.be-your-own-explorer</note>
       </trans-unit>
@@ -8495,7 +8879,7 @@
         <source>Test Transaction</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <note priority="1" from="description">Test Transaction</note>
         <note priority="1" from="meaning">shared.test-transaction</note>
@@ -8504,7 +8888,7 @@
         <source>Connect to our Nodes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">69</context>
         </context-group>
         <note priority="1" from="description">footer.connect-to-our-nodes</note>
       </trans-unit>
@@ -8512,7 +8896,7 @@
         <source>API Documentation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description">footer.api-documentation</note>
       </trans-unit>
@@ -8520,7 +8904,7 @@
         <source>Learn</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">73</context>
         </context-group>
         <note priority="1" from="description">footer.learn</note>
       </trans-unit>
@@ -8528,7 +8912,7 @@
         <source>What is a mempool?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">74</context>
         </context-group>
         <note priority="1" from="description">faq.what-is-a-mempool</note>
       </trans-unit>
@@ -8536,7 +8920,7 @@
         <source>What is a block explorer?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">75</context>
         </context-group>
         <note priority="1" from="description">faq.what-is-a-block-exlorer</note>
       </trans-unit>
@@ -8544,7 +8928,7 @@
         <source>What is a mempool explorer?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">75</context>
+          <context context-type="linenumber">76</context>
         </context-group>
         <note priority="1" from="description">faq.what-is-a-mempool-exlorer</note>
       </trans-unit>
@@ -8552,7 +8936,7 @@
         <source>Why isn&apos;t my transaction confirming?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">77</context>
         </context-group>
         <note priority="1" from="description">faq.why-isnt-my-transaction-confirming</note>
       </trans-unit>
@@ -8560,7 +8944,7 @@
         <source>More FAQs »</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">79</context>
         </context-group>
         <note priority="1" from="description">faq.more-faq</note>
       </trans-unit>
@@ -8568,7 +8952,7 @@
         <source>Research</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">80</context>
         </context-group>
         <note priority="1" from="description">mempool-research</note>
       </trans-unit>
@@ -8576,7 +8960,7 @@
         <source>Networks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">84</context>
         </context-group>
         <note priority="1" from="description">footer.networks</note>
       </trans-unit>
@@ -8584,7 +8968,7 @@
         <source>Mainnet Explorer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">84</context>
+          <context context-type="linenumber">85</context>
         </context-group>
         <note priority="1" from="description">footer.mainnet-explorer</note>
       </trans-unit>
@@ -8592,7 +8976,7 @@
         <source>Testnet3 Explorer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">85</context>
+          <context context-type="linenumber">86</context>
         </context-group>
         <note priority="1" from="description">footer.testnet3-explorer</note>
       </trans-unit>
@@ -8600,7 +8984,7 @@
         <source>Testnet4 Explorer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">86</context>
+          <context context-type="linenumber">87</context>
         </context-group>
         <note priority="1" from="description">footer.testnet4-explorer</note>
       </trans-unit>
@@ -8608,7 +8992,7 @@
         <source>Signet Explorer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">88</context>
         </context-group>
         <note priority="1" from="description">footer.signet-explorer</note>
       </trans-unit>
@@ -8616,7 +9000,7 @@
         <source>Regtest Explorer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">89</context>
         </context-group>
         <note priority="1" from="description">footer.regtest-explorer</note>
       </trans-unit>
@@ -8624,7 +9008,7 @@
         <source>Liquid Testnet Explorer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">89</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">footer.liquid-testnet-explorer</note>
       </trans-unit>
@@ -8632,7 +9016,7 @@
         <source>Liquid Explorer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">90</context>
+          <context context-type="linenumber">91</context>
         </context-group>
         <note priority="1" from="description">footer.liquid-explorer</note>
       </trans-unit>
@@ -8640,7 +9024,7 @@
         <source>Tools</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">94</context>
+          <context context-type="linenumber">95</context>
         </context-group>
         <note priority="1" from="description">footer.tools</note>
       </trans-unit>
@@ -8648,7 +9032,7 @@
         <source>Clock (Mined)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">97</context>
         </context-group>
         <note priority="1" from="description">footer.clock-mined</note>
       </trans-unit>
@@ -8656,7 +9040,7 @@
         <source>Legal</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">102</context>
         </context-group>
         <note priority="1" from="description">footer.legal</note>
       </trans-unit>
@@ -8664,7 +9048,7 @@
         <source>Third-party Licenses</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/global-footer/global-footer.component.html</context>
-          <context context-type="linenumber">102</context>
+          <context context-type="linenumber">103</context>
         </context-group>
         <note priority="1" from="description">Third-party Licenses</note>
         <note priority="1" from="meaning">shared.trademark-policy</note>

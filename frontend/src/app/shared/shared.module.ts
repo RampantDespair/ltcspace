@@ -48,6 +48,7 @@ import { NoSanitizePipe } from '@app/shared/pipes/no-sanitize.pipe';
 import { MempoolBlocksComponent } from '@components/mempool-blocks/mempool-blocks.component';
 import { BlockchainBlocksComponent } from '@components/blockchain-blocks/blockchain-blocks.component';
 import { AmountComponent } from '@components/amount/amount.component';
+import { MwebBlockSectionComponent } from '@components/mweb/mweb-block-section/mweb-block-section.component';
 import { RouterModule } from '@angular/router';
 import { CapAddressPipe } from '@app/shared/pipes/cap-address-pipe/cap-address-pipe';
 import { StartComponent } from '@components/start/start.component';
@@ -166,6 +167,7 @@ import { GithubLogin } from '@components/github-login.component/github-login.com
     MempoolBlocksComponent,
     BlockchainBlocksComponent,
     AmountComponent,
+    MwebBlockSectionComponent,
     MenuComponent,
     PreviewTitleComponent,
     StartComponent,
@@ -313,6 +315,7 @@ import { GithubLogin } from '@components/github-login.component/github-login.com
     MempoolBlocksComponent,
     BlockchainBlocksComponent,
     AmountComponent,
+    MwebBlockSectionComponent,
     StartComponent,
     BlockOverviewGraphComponent,
     BlockOverviewTooltipComponent,

@@ -103,7 +103,7 @@ const defaultEnv: Env = {
   'LIQUID_TESTNET_ENABLED': false,
   'BASE_MODULE': 'mempool',
   'ROOT_NETWORK': '',
-  'ITEMS_PER_PAGE': 10,
+  'ITEMS_PER_PAGE': 25,
   'KEEP_BLOCKS_AMOUNT': 8,
   'OFFICIAL_MEMPOOL_SPACE': false,
   'NGINX_PROTOCOL': 'http',

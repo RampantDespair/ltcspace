@@ -168,6 +168,11 @@ interface IConfig {
   STRATUM: {
     ENABLED: boolean;
     API: string;
+  },
+  MWEB: {
+    ENABLED: boolean;
+    API_URL: string;
+    TIMEOUT_MS: number;
   }
 }
 
@@ -337,6 +342,11 @@ const defaults: IConfig = {
   'STRATUM': {
     'ENABLED': false,
     'API': 'http://localhost:1234',
+  },
+  'MWEB': {
+    'ENABLED': false,
+    'API_URL': 'http://127.0.0.1:8080/api/v1',
+    'TIMEOUT_MS': 10000,
   }
 };
 
@@ -361,6 +371,7 @@ class Config implements IConfig {
   FIAT_PRICE: IConfig['FIAT_PRICE'];
   WALLETS: IConfig['WALLETS'];
   STRATUM: IConfig['STRATUM'];
+  MWEB: IConfig['MWEB'];
 
   constructor() {
     const configs = this.merge(configFromFile, defaults);
@@ -384,6 +395,7 @@ class Config implements IConfig {
     this.FIAT_PRICE = configs.FIAT_PRICE;
     this.WALLETS = configs.WALLETS;
     this.STRATUM = configs.STRATUM;
+    this.MWEB = configs.MWEB;
   }
 
   merge = (...objects: object[]): IConfig => {

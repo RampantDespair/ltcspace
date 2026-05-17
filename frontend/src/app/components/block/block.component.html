@@ -402,6 +402,7 @@
 
     @defer (on viewport) {
       @if (!block?.stale) {
+      <app-mweb-block-section [blockHash]="blockHash"></app-mweb-block-section>
       <app-block-transactions [paginationMaxSize]="paginationMaxSize" [block$]="block$" [txCount]="block.tx_count" [timestamp]="block.timestamp" [blockHash]="blockHash" [previousBlockHash]="block.previousblockhash" (blockReward)="updateBlockReward($event)"></app-block-transactions>
       }
     } @placeholder {

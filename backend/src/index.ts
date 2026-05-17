@@ -43,6 +43,7 @@ import bitcoinCoreRoutes from './api/bitcoin/bitcoin-core.routes';
 import bitcoinSecondClient from './api/bitcoin/bitcoin-second-client';
 import accelerationRoutes from './api/acceleration/acceleration.routes';
 import aboutRoutes from './api/about.routes';
+import mwebRoutes from './api/mweb/mweb.routes';
 import mempoolBlocks from './api/mempool-blocks';
 import walletApi from './api/services/wallets';
 import stratumApi from './api/services/stratum';
@@ -348,6 +349,9 @@ class Server {
     }
     if (!config.MEMPOOL.OFFICIAL) {
       aboutRoutes.initRoutes(this.app);
+    }
+    if (config.MWEB.ENABLED) {
+      mwebRoutes.initRoutes(this.app);
     }
   }
 

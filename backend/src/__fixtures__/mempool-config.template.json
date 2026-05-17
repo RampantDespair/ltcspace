@@ -153,5 +153,10 @@
   "STRATUM": {
     "ENABLED": false,
     "API": "http://localhost:1234"
+  },
+  "MWEB": {
+    "ENABLED": false,
+    "API_URL": "__MEMPOOL_MWEB_API_URL__",
+    "TIMEOUT_MS": 10000
   }
 }

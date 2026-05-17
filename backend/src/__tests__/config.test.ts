@@ -162,6 +162,12 @@ describe('Mempool Backend Config', () => {
         ENABLED: false,
         API: 'http://localhost:1234',
       });
+
+      expect(config.MWEB).toStrictEqual({
+        ENABLED: false,
+        API_URL: 'http://127.0.0.1:8080/api/v1',
+        TIMEOUT_MS: 10000,
+      });
     });
   });
 
@@ -195,6 +201,8 @@ describe('Mempool Backend Config', () => {
       expect(config.MEMPOOL_SERVICES).toStrictEqual(fixture.MEMPOOL_SERVICES);
 
       expect(config.REDIS).toStrictEqual(fixture.REDIS);
+
+      expect(config.MWEB).toStrictEqual(fixture.MWEB);
     });
   });
 

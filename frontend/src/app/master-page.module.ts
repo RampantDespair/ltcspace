@@ -100,6 +100,11 @@ const routes: Routes = [
       {
         path: 'tools/calculator',
         component: CalculatorComponent
+      },
+      {
+        path: 'mweb',
+        loadChildren: () => import('@components/mweb/mweb.module').then(m => m.MwebModule),
+        data: { networks: ['bitcoin'] },
       }
     ],
   }
