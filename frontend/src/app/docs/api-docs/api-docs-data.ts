@@ -1,6 +1,19 @@
 const bitcoinNetworks = ['', 'testnet', 'testnet4', 'signet'];
 const liquidNetworks = ['liquid', 'liquidtestnet'];
 const lightningNetworks = ['', 'testnet', 'signet'];
+
+export function filterApiDocs(docs: any[], { lightningEnabled }: { lightningEnabled: boolean }): any[] {
+  if (!docs) return docs;
+  return docs.filter(item => {
+    if (item.category === 'accelerator-public' || item.category === 'accelerator-private') {
+      return false;
+    }
+    if (item.category === 'lightning' && !lightningEnabled) {
+      return false;
+    }
+    return true;
+  });
+}
 const miningTimeIntervals = '<code>24h</code>, <code>3d</code>, <code>1w</code>, <code>1m</code>, <code>3m</code>, <code>6m</code>, <code>1y</code>, <code>2y</code>, <code>3y</code>';
 
 const emptyCodeSample = {

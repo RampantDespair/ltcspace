@@ -3,7 +3,7 @@ import { Env, StateService } from '@app/services/state.service';
 import { Observable, merge, of, Subject, Subscription } from 'rxjs';
 import { tap, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
-import { faqData, restApiDocsData, wsApiDocsData, electrumApiDocsData } from '@app/docs/api-docs/api-docs-data';
+import { faqData, restApiDocsData, wsApiDocsData, electrumApiDocsData, filterApiDocs } from '@app/docs/api-docs/api-docs-data';
 import { FaqTemplateDirective } from '@app/docs/faq-template/faq-template.component';
 
 @Component({
@@ -96,10 +96,11 @@ export class ApiDocsComponent implements OnInit, AfterViewInit {
 
     this.hostname = `${document.location.protocol}//${this.hostname}`;
 
-    this.faq = faqData;
-    this.restDocs = restApiDocsData;
-    this.wsDocs = wsApiDocsData;
-    this.electrumDocs = electrumApiDocsData;
+    const lightningEnabled = !!this.env.LIGHTNING;
+    this.faq = filterApiDocs(faqData, { lightningEnabled });
+    this.restDocs = filterApiDocs(restApiDocsData, { lightningEnabled });
+    this.wsDocs = filterApiDocs(wsApiDocsData, { lightningEnabled });
+    this.electrumDocs = filterApiDocs(electrumApiDocsData, { lightningEnabled });
 
     this.network$.pipe(takeUntil(this.destroy$)).subscribe((network) => {
       this.active = (network === 'liquid' || network === 'liquidtestnet') ? 2 : 0;

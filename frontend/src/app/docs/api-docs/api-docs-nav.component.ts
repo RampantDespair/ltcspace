@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Env, StateService } from '@app/services/state.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { restApiDocsData, wsApiDocsData, electrumApiDocsData } from '@app/docs/api-docs/api-docs-data';
+import { restApiDocsData, wsApiDocsData, electrumApiDocsData, filterApiDocs } from '@app/docs/api-docs/api-docs-data';
 import { faqData } from '@app/docs/api-docs/api-docs-data';
 
 @Component({
@@ -36,14 +36,15 @@ export class ApiDocsNavComponent implements OnInit {
       this.runningElectrs = !!(backend == 'esplora');
     });
     this.auditEnabled = this.env.AUDIT;
+    const lightningEnabled = !!this.env.LIGHTNING;
     if (this.whichTab === 'rest') {
-      this.tabData = restApiDocsData;
+      this.tabData = filterApiDocs(restApiDocsData, { lightningEnabled });
     } else if (this.whichTab === 'websocket') {
-      this.tabData = wsApiDocsData;
+      this.tabData = filterApiDocs(wsApiDocsData, { lightningEnabled });
     } else if (this.whichTab === 'faq') {
-      this.tabData = faqData;
+      this.tabData = filterApiDocs(faqData, { lightningEnabled });
     } else if (this.whichTab === 'electrs') {
-      this.tabData = electrumApiDocsData;
+      this.tabData = filterApiDocs(electrumApiDocsData, { lightningEnabled });
     }
   }
 
