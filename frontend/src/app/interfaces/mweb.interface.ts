@@ -87,6 +87,15 @@ export interface MwebSupplySnapshot {
   allTimeOutputCount: number;
 }
 
+export interface MwebKernelPegoutSlot {
+  index: number;
+  value: number;
+  pkScriptHex: string;
+  addressClass?: string;
+  addresses?: string[];
+  hogExMatch?: { hogExVoutIndex: number };
+}
+
 export interface MwebKernel {
   index: number;
   kernelId: string;
@@ -97,7 +106,7 @@ export interface MwebKernel {
   featureFlags: string[];
   fee?: number;
   pegin?: number;
-  pegouts?: unknown[];
+  pegouts?: MwebKernelPegoutSlot[];
   excessHex: string;
   signatureHex: string;
   lockHeightEnforced?: boolean;
@@ -107,9 +116,12 @@ export interface MwebInput {
   index: number;
   inputHash: string;
   features: number;
+  featureFlags?: string[];
   outputId: string;
   commitmentHex: string;
   outputPubKeyHex?: string;
+  inputPubKeyHex?: string;
+  extraDataHex?: string;
   signatureHex?: string;
   spendsFrozen?: boolean;
 }
@@ -213,6 +225,22 @@ export interface MwebBlockResponse {
   broadcasts: MwebMempoolBroadcast[];
   broadcasts_truncated: boolean;
   broadcasts_next_cursor: string;
+}
+
+export interface MwebOutputView {
+  output: MwebOutput;
+  blockHash: string;
+  blockHeight: number;
+  blockTime: number;
+  spentAtHeight?: number;
+  spentByInputIdx?: number;
+}
+
+export interface MwebOutputSpend {
+  outputId: string;
+  input: MwebInput;
+  blockHash: string;
+  blockHeight: number;
 }
 
 export interface MwebBroadcastsPage {

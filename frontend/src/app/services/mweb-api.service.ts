@@ -14,6 +14,8 @@ import {
   MwebKernelLookup,
   MwebMempoolPage,
   MwebMempoolBroadcast,
+  MwebOutputSpend,
+  MwebOutputView,
   MwebStatsNow,
   MwebStatsRange,
   MwebStatsSeries,
@@ -89,6 +91,14 @@ export class MwebApiService {
 
   getKernel$(kernelId: string): Observable<MwebKernelLookup> {
     return this.wrap(this.httpClient.get<MwebKernelLookup>(this.url('/kernels/' + encodeURIComponent(kernelId))));
+  }
+
+  getOutput$(outputId: string): Observable<MwebOutputView> {
+    return this.wrap(this.httpClient.get<MwebOutputView>(this.url('/outputs/' + encodeURIComponent(outputId))));
+  }
+
+  getInputByOutput$(outputId: string): Observable<MwebOutputSpend> {
+    return this.wrap(this.httpClient.get<MwebOutputSpend>(this.url('/inputs/by-output/' + encodeURIComponent(outputId))));
   }
 
   getSupplyCurrent$(): Observable<MwebSupplySnapshot> {

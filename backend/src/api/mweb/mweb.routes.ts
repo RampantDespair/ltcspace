@@ -10,12 +10,14 @@ class MwebRoutes {
       .get(prefix + '/healthz', this.proxy('/healthz', undefined, true))
       .get(prefix + '/sync/status', this.proxy('/sync/status'))
       .get(prefix + '/blocks/tip', this.proxy('/blocks/tip'))
+      .get(prefix + '/blocks/count', this.proxy('/blocks/count'))
       .get(prefix + '/blocks/by-height/:height', (req, res) =>
         this.proxy(`/blocks/by-height/${encodeURIComponent(req.params.height)}`)(req, res))
       .get(prefix + '/blocks/:hash/broadcasts', (req, res) =>
         this.proxy(`/blocks/${encodeURIComponent(req.params.hash)}/broadcasts`, ['cursor', 'limit'])(req, res))
       .get(prefix + '/blocks/:hash', (req, res) =>
         this.proxy(`/blocks/${encodeURIComponent(req.params.hash)}`)(req, res))
+      .get(prefix + '/blocks', this.proxy('/blocks', ['before_height', 'limit']))
       .get(prefix + '/kernels/:kernel_id', (req, res) =>
         this.proxy(`/kernels/${encodeURIComponent(req.params.kernel_id)}`)(req, res))
       .get(prefix + '/outputs/:output_id', (req, res) =>
@@ -38,6 +40,8 @@ class MwebRoutes {
         this.proxy(`/addresses/${encodeURIComponent(req.params.address)}/cluster`)(req, res))
       .get(prefix + '/supply/current', this.proxy('/supply/current'))
       .get(prefix + '/supply/history', this.proxy('/supply/history', ['from', 'to']))
+      .get(prefix + '/stats/series/now', this.proxy('/stats/series/now', ['range']))
+      .get(prefix + '/stats/series', this.proxy('/stats/series', ['range', 'from', 'to']))
       .get(prefix + '/mempool/:mempool_tx_id', (req, res) =>
         this.proxy(`/mempool/${encodeURIComponent(req.params.mempool_tx_id)}`)(req, res))
       .get(prefix + '/mempool', this.proxy('/mempool', ['cursor', 'limit']))
