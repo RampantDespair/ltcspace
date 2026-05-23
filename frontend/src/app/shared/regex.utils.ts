@@ -33,31 +33,31 @@ const ADDRESS_CHARS: {
   };
 } = {
   mainnet: {
-    base58: `[13]` // Starts with a single 1 or 3
+    base58: `[LM3]` // Litecoin: L (P2PKH, version 0x30), M (P2SH, version 0x32), 3 (legacy P2SH, version 0x05)
       + BASE58_CHARS
       + `{26,33}`, // Repeat the previous char 26-33 times.
-      // Version byte 0x00 (P2PKH) can be as short as 27 characters, up to 34 length
+      // Version byte 0x30 (P2PKH) can be as short as 27 characters, up to 34 length
       // P2SH must be 34 length
     bech32: `(?:`
-        + `bc1` // Starts with bc1
+        + `ltc1` // Starts with ltc1
         + BECH32_CHARS_LW
         + `{6,100}` // As per bech32, 6 char checksum is minimum
       + `|`
-        + `BC1` // All upper case version
+        + `LTC1` // All upper case version
         + BECH32_CHARS_UP
         + `{6,100}`
       + `)`,
   },
   testnet: {
-    base58: `[mn2]` // Starts with a single m, n, or 2 (P2PKH is m or n, 2 is P2SH)
+    base58: `[mnQ2]` // Litecoin testnet: m/n (P2PKH, 0x6F), Q (P2SH, 0x3A); 2 retained for completeness
       + BASE58_CHARS
-      + `{33,34}`, // m|n is 34 length, 2 is 35 length (We match the first letter separately)
+      + `{33,34}`, // m|n|Q is 34 length, 2 is 35 length (We match the first letter separately)
     bech32: `(?:`
-        + `tb1` // Starts with tb1
+        + `tltc1` // Starts with tltc1
         + BECH32_CHARS_LW
         + `{6,100}` // As per bech32, 6 char checksum is minimum
       + `|`
-        + `TB1` // All upper case version
+        + `TLTC1` // All upper case version
         + BECH32_CHARS_UP
         + `{6,100}`
       + `)`,
